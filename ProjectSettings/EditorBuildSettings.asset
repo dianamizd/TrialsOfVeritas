@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/DM_CharaAndLvlSelectTest.unity
+    guid: 3a743dcc7052eff4ebce7f85d3bd3a7a
+  - enabled: 1
+    path: Assets/Scenes/IslandLevel.unity
+    guid: 952e8a6b7331e1545a367e0bec3b7499
+  - enabled: 1
+    path: Assets/Scenes/LavaLevel.unity
+    guid: 8cceb5e86923add45bc880aca77a6014
   m_configObjects: {}
