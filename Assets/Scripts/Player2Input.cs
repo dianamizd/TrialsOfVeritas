@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Player2Input : MonoBehaviour
 {
-    public float h;
+    private float h;
 
-    public float v;
+    private float v;
+
+    public int speed = 5;
     
     // Start is called before the first frame update
     void Start()
@@ -35,11 +37,25 @@ public class Player2Input : MonoBehaviour
         v = Input.GetAxis("Vertical_P2");
 
         //moves player
-        transform.Translate(movement * Time.deltaTime, 0);
+        transform.Translate(movement * Time.deltaTime * speed, 0);
 
         //makes player face direction of movement
         transform.rotation = Quaternion.LookRotation(movement);
 
         Debug.Log(h);
+        
+        //attacking (firing) input for player
+        if (Input.GetButtonDown("Fire_P2"))
+        {
+            print("player 2 fire");
+        }
+
+        //dodging input for player
+        if (Input.GetButtonDown("Dodge_P2"))
+        {
+            print("player 2 dodge");
+
+            speed = speed + 5;
+        }
     }
 }
