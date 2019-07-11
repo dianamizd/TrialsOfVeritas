@@ -9,6 +9,8 @@ public class Player2Input : MonoBehaviour
     private float v;
 
     public int speed = 5;
+
+    public int dodgespeed = 10;
     
     // Start is called before the first frame update
     void Start()
@@ -40,7 +42,10 @@ public class Player2Input : MonoBehaviour
         transform.Translate(movement * Time.deltaTime * speed, 0);
 
         //makes player face direction of movement
-        transform.rotation = Quaternion.LookRotation(movement);
+        if ((movement.x != 0) || (movement.y != 0))
+        {
+            transform.rotation = Quaternion.LookRotation(movement);
+        }
 
         Debug.Log(h);
         
@@ -55,7 +60,18 @@ public class Player2Input : MonoBehaviour
         {
             print("player 2 dodge");
 
-            speed = speed + 5;
+            if (speed == 7)
+            {
+                speed += dodgespeed;
+
+                if (speed > 7)
+                {
+                    speed = 7;
+                }
+            }
+
+            
+            
         }
     }
 }
