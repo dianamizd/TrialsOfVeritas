@@ -8,27 +8,17 @@ public class Player1Input : MonoBehaviour
 
     private float v;
 
-    private Vector3 movementdirection = Vector3.zero;
-
     public int speed = 5;
-
-    public float dodgespeed = 10;
-
-    Rigidbody player_rigidbody;
     
     // Start is called before the first frame update
     void Start()
     {
-        player_rigidbody = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        h = Input.GetAxis("Horizontal_P1");
-
-        v = Input.GetAxis("Vertical_P1");
-
         //movement input for player
         Vector3 movement = new Vector3(h, 0, v);
 
@@ -42,14 +32,15 @@ public class Player1Input : MonoBehaviour
             print("player 1 up/down movement");
         }
 
+        h = Input.GetAxis("Horizontal_P1");
+
+        v = Input.GetAxis("Vertical_P1");
+
         //moves player
         transform.Translate(movement * Time.deltaTime * speed, 0);
 
         //makes player face direction of movement
-        if((movement.x != 0) || (movement.y != 0)) 
-        {
-            transform.rotation = Quaternion.LookRotation(movement);
-        }
+        transform.rotation = Quaternion.LookRotation(movement);
 
         Debug.Log(h);
 
@@ -63,8 +54,6 @@ public class Player1Input : MonoBehaviour
         if(Input.GetButtonDown("Dodge_P1"))
         {
             print("player 1 dodge");
-
-            player_rigidbody.AddForce(transform.forward * dodgespeed);
         }
     }
 }
