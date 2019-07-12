@@ -29,5 +29,12 @@ public class PlayerOneHealth : MonoBehaviour
             healthBar.value -= 5f;
             currentHealth = healthBar.value;
         }
+
+        ////for projectile - but commented out because it affected the player shooting the projectile and not the other player
+        //if(collision.gameObject.tag == "Projectile")
+        //{
+        //    healthBar.value -= 5f;
+        //    currentHealth = healthBar.value;
+        //}
     }
 }

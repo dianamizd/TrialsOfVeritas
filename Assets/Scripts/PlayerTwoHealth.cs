@@ -31,7 +31,11 @@ public class PlayerTwoHealth : MonoBehaviour
             healthBar.value += 5f;
             currentHealth = healthBar.value;
         }
-    }
 
-    //we can add something "if the player's health reaches maxHealth, they lose" but idk atm
+        //if (collision.gameObject.tag == "Projectile")
+        //{
+        //    healthBar.value -= 5f;
+        //    currentHealth = healthBar.value;
+        //}
+    }
 }
