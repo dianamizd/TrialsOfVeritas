@@ -9,18 +9,39 @@ public class Player2Input : MonoBehaviour
     private float v;
 
     public int speed = 5;
+
+    public Vector3 movement;
+
+    //speed of dodge
+    public float dodgeSpeed = 1.0f;
+
+    //distance which the dodge pushes the player
+    public float dodgeDistance = 5;
+
+    //current time which dodge is active
+    public float currentdodgeTime = 1.0f;
+
+    //speed which the dodge stops
+    private float dodgeStopSpeed = 0.1f;
+
+    //the maximum time of dodging
+    private float maxdodgeTime;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+       currentdodgeTime  = maxdodgeTime;
     }
 
     // Update is called once per frame
     void Update()
     {
         //movement for player
-        Vector3 movement = new Vector3(h, 0, v);
+        movement = new Vector3(h, 0, v);
+
+        h = Input.GetAxis("Horizontal_P2");
+
+        v = Input.GetAxis("Vertical_P2");
 
         if (Input.GetButtonDown("Horizontal_P2"))
         {
@@ -31,10 +52,6 @@ public class Player2Input : MonoBehaviour
         {
             print("player 2 up/down movement");
         }
-
-        h = Input.GetAxis("Horizontal_P2");
-
-        v = Input.GetAxis("Vertical_P2");
 
         //moves player
         transform.Translate(movement * Time.deltaTime * speed, 0);
@@ -59,7 +76,18 @@ public class Player2Input : MonoBehaviour
         {
             print("player 2 dodge");
 
-            speed = speed + 5;
+            currentdodgeTime = 0.0f;
+
+            if (currentdodgeTime < maxdodgeTime)
+            {
+                movement = transform.forward * dodgeDistance;
+                currentdodgeTime += dodgeStopSpeed;
+            }
+            else
+            {
+                movement = Vector3.zero;
+            }
         }
+        
     }
 }
