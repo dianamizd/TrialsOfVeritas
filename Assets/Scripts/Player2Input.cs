@@ -26,7 +26,11 @@ public class Player2Input : MonoBehaviour
 
     //the maximum time of dodging
     private float maxdodgeTime;
-    
+
+    public GameObject bullet;
+
+    public float bulletspeed = 100f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +73,10 @@ public class Player2Input : MonoBehaviour
         if (Input.GetButtonDown("Fire_P2"))
         {
             print("player 2 fire");
+
+            GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+            Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
+            instBulletRigidbody.AddForce(Vector3.forward * bulletspeed);
         }
 
         //dodging input for player
@@ -77,17 +85,17 @@ public class Player2Input : MonoBehaviour
             print("player 2 dodge");
 
             currentdodgeTime = 0.0f;
-
-            if (currentdodgeTime < maxdodgeTime)
-            {
-                movement = transform.forward * dodgeDistance;
-                currentdodgeTime += dodgeStopSpeed;
-            }
-            else
-            {
-                movement = Vector3.zero;
-            }
         }
-        
+
+        if (currentdodgeTime < maxdodgeTime)
+        {
+            movement = transform.forward * dodgeDistance;
+            currentdodgeTime += dodgeStopSpeed;
+        }
+        else
+        {
+            movement = Vector3.zero;
+        }
+
     }
 }

@@ -9,7 +9,28 @@ public class Player1Input : MonoBehaviour
     private float v;
 
     public int speed = 5;
-    
+
+    Vector3 movement;
+
+    //speed of dodge
+    public float dodgeSpeed = 1.0f;
+
+    //distance which the dodge pushes the player
+    public float dodgeDistance = 5;
+
+    //current time which dodge is active
+    public float currentdodgeTime = 1.0f;
+
+    //speed which the dodge stops
+    private float dodgeStopSpeed = 0.1f;
+
+    //the maximum time of dodging
+    private float maxdodgeTime;
+
+    public GameObject bullet;
+
+    public float bulletspeed = 100f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +41,7 @@ public class Player1Input : MonoBehaviour
     void Update()
     {
         //movement input for player
-        Vector3 movement = new Vector3(h, 0, v);
+        movement = new Vector3(h, 0, v);
 
         if (Input.GetButtonDown("Horizontal_P1"))
         {
@@ -51,12 +72,28 @@ public class Player1Input : MonoBehaviour
         if(Input.GetButtonDown("Fire_P1"))
         {
             print("player 1 fire");
+
+            GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+            Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
+            instBulletRigidbody.AddForce(Vector3.forward * bulletspeed);
         }
 
         //dodging input for player
         if(Input.GetButtonDown("Dodge_P1"))
         {
             print("player 1 dodge");
+
+            currentdodgeTime = 0.0f;
+        }
+
+        if (currentdodgeTime < maxdodgeTime)
+        {
+            movement = transform.forward * dodgeDistance;
+            currentdodgeTime += dodgeStopSpeed;
+        }
+        else
+        {
+            movement = Vector3.zero;
         }
     }
 }

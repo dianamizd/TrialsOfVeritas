@@ -298,8 +298,8 @@ GameObject:
   - component: {fileID: 370491650}
   - component: {fileID: 370491649}
   - component: {fileID: 370491648}
-  - component: {fileID: 370491652}
   - component: {fileID: 370491653}
+  - component: {fileID: 370491652}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -413,6 +413,8 @@ MonoBehaviour:
   dodgeSpeed: 1
   dodgeDistance: 5
   currentdodgeTime: 1
+  bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
+  bulletspeed: 500
 --- !u!1 &533421924
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,6 +812,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  dodgeSpeed: 1
+  dodgeDistance: 5
+  currentdodgeTime: 1
+  bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
+  bulletspeed: 500
 --- !u!1 &1157570738
 GameObject:
   m_ObjectHideFlags: 0
