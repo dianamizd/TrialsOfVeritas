@@ -40,7 +40,11 @@ public class Player2Input : MonoBehaviour
         transform.Translate(movement * Time.deltaTime * speed, 0);
 
         //makes player face direction of movement
-        transform.rotation = Quaternion.LookRotation(movement);
+        if((movement.x != 0) || (movement.y != 0)) 
+        {
+            transform.rotation = Quaternion.LookRotation(movement);
+        }
+        
 
         Debug.Log(h);
         
