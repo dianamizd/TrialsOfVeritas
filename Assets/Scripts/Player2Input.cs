@@ -12,6 +12,8 @@ public class Player2Input : MonoBehaviour
 
     public Vector3 movement;
 
+    public GameObject bulletSpawn;
+
     //speed of dodge
     public float dodgeSpeed = 1.0f;
 
@@ -74,9 +76,10 @@ public class Player2Input : MonoBehaviour
         {
             print("player 2 fire");
 
-            GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+            GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce(Vector3.forward * bulletspeed);
+            instBulletRigidbody.AddForce(transform.forward*500);    
+           
         }
 
         //dodging input for player
