@@ -8,11 +8,13 @@ public class PlayerTwoHealth : MonoBehaviour
     //since the 2nd players UI works in reverse, it's different from player 1's script
 
     //healthbar
-    public Slider healthBar;
+    [SerializeField] private Slider healthBar;
 
-    //setting health variables - but will need to change for each different character
-    //float maxHealth = 100;
-    float currentHealth;
+    //setting health variable
+    public float currentHealth;
+
+    //variable for respawn point
+    [SerializeField] private Transform respawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,19 @@ public class PlayerTwoHealth : MonoBehaviour
         healthBar.value = 0;
         //health gets update when damage is taken
         currentHealth = healthBar.value;
+    }
+
+    private void Update()
+    {
+        //when the character's health = 0 (which is 100), the character will reset both their position and health
+        if (currentHealth == 100f)
+        {
+            gameObject.transform.position = respawnPoint.transform.position;
+
+            currentHealth = 0;
+
+            //also respawn other character and reset their health.
+        }
     }
 
     //currently, when the player collides with the other player, they'll take damage(or in player 2's case, healed) - this can be changed when projectiles are implemeted
