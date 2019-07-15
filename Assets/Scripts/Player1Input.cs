@@ -18,31 +18,21 @@ public class Player1Input : MonoBehaviour
     //distance which the dodge pushes the player
     public float dodgeDistance = 5;
 
-    //indicates direction dodge will go
-    public Vector3 dodgeDirection;
+    //current time which dodge is active
+    public float currentdodgeTime = 1.0f;
 
     //speed which the dodge stops
     private float dodgeStopSpeed = 0.1f;
 
     //the maximum time of dodging
-    private const float maxdodgeTime = 1.0f;
-
-    //current time which dodge is active
-    float currentdodgeTime = maxdodgeTime;
+    private float maxdodgeTime;
 
     public GameObject bullet;
 
     public float bulletspeed = 100f;
 
-    CharacterController controller;
-
     // Start is called before the first frame update
-    void Awake()
-    {
-        GetComponent<CharacterController>();
-    }
-
-    private void Start()
+    void Start()
     {
         
     }
@@ -99,13 +89,11 @@ public class Player1Input : MonoBehaviour
         if (currentdodgeTime < maxdodgeTime)
         {
             movement = transform.forward * dodgeDistance;
-            
             currentdodgeTime += dodgeStopSpeed;
         }
         else
         {
-           movement = Vector3.zero;
+            movement = Vector3.zero;
         }
-        controller.Move(movement * Time.deltaTime * dodgeSpeed);
     }
 }

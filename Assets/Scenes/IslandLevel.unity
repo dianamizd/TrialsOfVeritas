@@ -839,9 +839,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  dodgeSpeed: 6.8
-  dodgeDistance: 12.98
-  dodgeDirection: {x: 0, y: 0, z: 0}
+  dodgeSpeed: 1
+  dodgeDistance: 5
+  currentdodgeTime: 1
   bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
   bulletspeed: 500
 --- !u!114 &1102272350

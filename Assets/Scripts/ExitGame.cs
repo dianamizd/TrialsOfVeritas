@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class ExitGame : MonoBehaviour
 {
-    
-
-    public void ExitApp()
+    private void Update()
     {
-        //Exiting game...
         Application.Quit();
     }
     
