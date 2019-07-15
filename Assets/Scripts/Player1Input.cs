@@ -22,16 +22,24 @@ public class Player1Input : MonoBehaviour
     public float dodgeDistance = 5;
 
     //current time which dodge is active
-    public float currentdodgeTime = 1.0f;
+    public float currentDodgeTime = 1.0f;
 
     //speed which the dodge stops
     private float dodgeStopSpeed = 0.1f;
 
     //the maximum time of dodging
-    private float maxdodgeTime;
+    private float maxDodgeTime = 1.0f;
 
+    public float currentDodgeCooldownTime = 0.0f;
+
+    public float maxDodgeCooldownTime = 5.0f;
+
+    private bool dodgeActive = true;
+
+    //defining projectile
     public GameObject bullet;
 
+    //speed of projectile
     public float bulletspeed = 100f;
 
     // Start is called before the first frame update
@@ -86,17 +94,26 @@ public class Player1Input : MonoBehaviour
         {
             print("player 1 dodge");
 
-            currentdodgeTime = 0.0f;
+            currentDodgeTime = 0.0f;
+            currentDodgeCooldownTime = 5.0f;
         }
-
-        if (currentdodgeTime < maxdodgeTime)
+        //during dodge period
+        if (currentDodgeTime < maxDodgeTime)
         {
             movement = transform.forward * dodgeDistance;
-            currentdodgeTime += dodgeStopSpeed;
+            transform.Translate(movement * Time.deltaTime * dodgeSpeed, 0);
+            currentDodgeTime += dodgeStopSpeed;
+            dodgeActive = true;
         }
         else
         {
             movement = Vector3.zero;
+        }
+
+        if(currentDodgeCooldownTime == maxDodgeCooldownTime)
+        {
+            currentDodgeCooldownTime -= Time.deltaTime;
+            dodgeActive = false;
         }
     }
 }

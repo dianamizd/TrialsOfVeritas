@@ -412,7 +412,7 @@ MonoBehaviour:
   speed: 7
   movement: {x: 0, y: 0, z: 0}
   bulletSpawn: {fileID: 533421924}
-  dodgeSpeed: 1
+  dodgeSpeed: 5
   dodgeDistance: 5
   currentdodgeTime: 1
   bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
@@ -430,6 +430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1827356727}
+  currentHealth: 0
+  respawnPoint: {fileID: 0}
 --- !u!1 &384342819
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,9 +988,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   bulletSpawn: {fileID: 1656644058}
-  dodgeSpeed: 1
+  dodgeSpeed: 5
   dodgeDistance: 5
-  currentdodgeTime: 1
+  currentDodgeTime: 1
+  currentDodgeCooldownTime: 0
+  maxDodgeCooldownTime: 10
   bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
   bulletspeed: 500
 --- !u!114 &1102272350
@@ -1004,6 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 903876405}
+  respawnPoint: {fileID: 0}
 --- !u!1 &1157570738
 GameObject:
   m_ObjectHideFlags: 0

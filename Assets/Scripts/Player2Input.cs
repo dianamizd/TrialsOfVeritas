@@ -27,10 +27,12 @@ public class Player2Input : MonoBehaviour
     private float dodgeStopSpeed = 0.1f;
 
     //the maximum time of dodging
-    private float maxdodgeTime;
+    private float maxdodgeTime = 1.0f;
 
+    //defining projectile
     public GameObject bullet;
 
+    //speed of projectile
     public float bulletspeed = 100f;
 
     // Start is called before the first frame update
@@ -93,6 +95,7 @@ public class Player2Input : MonoBehaviour
         if (currentdodgeTime < maxdodgeTime)
         {
             movement = transform.forward * dodgeDistance;
+            transform.Translate(movement * Time.deltaTime * dodgeSpeed, 0);
             currentdodgeTime += dodgeStopSpeed;
         }
         else
