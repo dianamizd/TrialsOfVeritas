@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class PlayerOneHealth : MonoBehaviour
 {
     //healthbar
-    public Slider healthBar;
+    [SerializeField] private Slider healthBar;
 
     //setting health variables - but will need to change for each different character
-    float maxHealth = 100;
-    float currentHealth;
+    private float maxHealth = 100;
+    private float currentHealth;
+
+    //variable for the respawn point (empty game object)
+    [SerializeField] private Transform respawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,20 @@ public class PlayerOneHealth : MonoBehaviour
         healthBar.value = maxHealth;
         //health gets update when damage is taken
         currentHealth = healthBar.value;
+    }
+
+    private void Update()
+    {
+        //when health = 0, the character will respawn, health for the player goes back up
+        if(currentHealth == 0f)
+        {
+            gameObject.transform.position = respawnPoint.transform.position;
+
+            currentHealth = maxHealth;
+
+            //update the round? (or maybe in another script)
+            //also respawn other player and reset their health
+        }
     }
 
     //currently, when the player collides with the other player, they'll take damage - this can be changed when projectiles are implemeted
