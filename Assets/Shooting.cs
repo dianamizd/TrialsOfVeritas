@@ -5,12 +5,13 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public GameObject bullet;
+    public GameObject bulletSpawn;
     public float speed = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,8 +21,9 @@ public class Shooting : MonoBehaviour
         {
             GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce(Vector3.forward * speed);
+            instBulletRigidbody.AddForce(transform.up * speed);
+
         }
-        
+
     }
 }
