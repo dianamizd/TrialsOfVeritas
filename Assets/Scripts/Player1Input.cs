@@ -42,10 +42,14 @@ public class Player1Input : MonoBehaviour
     //speed of projectile
     public float bulletspeed = 100f;
 
+    CharacterController controller;
+
     // Start is called before the first frame update
     void Start()
     {
         dodgeActive = Input.GetButtonDown("Dodge_P1");
+
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -112,12 +116,14 @@ public class Player1Input : MonoBehaviour
 
         if(currentDodgeCooldownTime < maxDodgeCooldownTime)
         {
+            print("dodge on cooldown");
             currentDodgeCooldownTime += dodgeStopSpeed;
-            dodgeActive = true;
+            dodgeActive = false;
         }
         else
         {
-            dodgeActive = false;
+            print("dodge ready");
+            dodgeActive = true;
         }
     }
 }
