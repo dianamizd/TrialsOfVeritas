@@ -54,4 +54,16 @@ public class PlayerOneHealth : MonoBehaviour
         //    currentHealth = healthBar.value;
         //}
     }
+
+    //player health increase upon picking up power-up
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Power-Up"))
+        {
+            healthBar.value += 10f;
+            currentHealth = healthBar.value;
+        }
+    }
+
+
 }

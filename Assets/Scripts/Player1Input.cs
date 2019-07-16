@@ -30,9 +30,9 @@ public class Player1Input : MonoBehaviour
     //the maximum time of dodging
     private float maxDodgeTime = 1.0f;
 
-    public float currentDodgeCooldownTime = 0.0f;
+    public float currentDodgeCooldownTime = 10.0f;
 
-    public float maxDodgeCooldownTime = 5.0f;
+    private float maxDodgeCooldownTime = 10.0f;
 
     private bool dodgeActive = true;
 
@@ -45,7 +45,7 @@ public class Player1Input : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        dodgeActive = Input.GetButtonDown("Dodge_P1");
     }
 
     // Update is called once per frame
@@ -95,24 +95,28 @@ public class Player1Input : MonoBehaviour
             print("player 1 dodge");
 
             currentDodgeTime = 0.0f;
-            currentDodgeCooldownTime = 5.0f;
-        }
+            currentDodgeCooldownTime = 0.0f;
+        } 
         //during dodge period
         if (currentDodgeTime < maxDodgeTime)
         {
             movement = transform.forward * dodgeDistance;
             transform.Translate(movement * Time.deltaTime * dodgeSpeed, 0);
             currentDodgeTime += dodgeStopSpeed;
-            dodgeActive = true;
+            dodgeActive = false;
         }
         else
         {
             movement = Vector3.zero;
         }
 
-        if(currentDodgeCooldownTime == maxDodgeCooldownTime)
+        if(currentDodgeCooldownTime < maxDodgeCooldownTime)
         {
-            currentDodgeCooldownTime -= Time.deltaTime;
+            currentDodgeCooldownTime += dodgeStopSpeed;
+            dodgeActive = true;
+        }
+        else
+        {
             dodgeActive = false;
         }
     }
