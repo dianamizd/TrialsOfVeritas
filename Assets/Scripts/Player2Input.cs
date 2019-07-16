@@ -21,13 +21,19 @@ public class Player2Input : MonoBehaviour
     public float dodgeDistance = 5;
 
     //current time which dodge is active
-    public float currentdodgeTime = 1.0f;
+    public float currentDodgeTime = 1.0f;
 
     //speed which the dodge stops
     private float dodgeStopSpeed = 0.1f;
 
     //the maximum time of dodging
-    private float maxdodgeTime = 1.0f;
+    private float maxDodgeTime = 1.0f;
+
+    //current cooldown for dodge (if at zero input works)
+    private float currentDodgeCooldownTime = 0.0f;
+
+    //maximum cooldown time for dodge
+    public float maxDodgeCooldownTime = 2.0f;
 
     //defining projectile
     public GameObject bullet;
@@ -35,10 +41,12 @@ public class Player2Input : MonoBehaviour
     //speed of projectile
     public float bulletspeed = 100f;
 
+    public GameObject playercharacter;
+
     // Start is called before the first frame update
     void Start()
     {
-       currentdodgeTime  = maxdodgeTime;
+ 
     }
 
     // Update is called once per frame
@@ -85,23 +93,42 @@ public class Player2Input : MonoBehaviour
         }
 
         //dodging input for player
-        if (Input.GetButtonDown("Dodge_P2"))
+        if (Time.time > currentDodgeCooldownTime)
         {
-            print("player 2 dodge");
+            print("player 2 dodge ready");
 
-            currentdodgeTime = 0.0f;
+            //playercharacter.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
+            if (Input.GetButtonDown("Dodge_P2"))
+            {
+                print("player 2 dodge, now on cooldown");
+
+                currentDodgeTime = 0.0f;
+
+                //active cooldown for dodge
+                currentDodgeCooldownTime = Time.time + maxDodgeCooldownTime;
+            }
+
+           
         }
 
-        if (currentdodgeTime < maxdodgeTime)
+        //during dodge period
+        if (currentDodgeTime < maxDodgeTime)
         {
             movement = transform.forward * dodgeDistance;
+
             transform.Translate(movement * Time.deltaTime * dodgeSpeed, 0);
-            currentdodgeTime += dodgeStopSpeed;
+           
+            //active dodge time
+            currentDodgeTime += dodgeStopSpeed;
+
+            //dodge state indicator
+            //playercharacter.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+
         }
         else
         {
             movement = Vector3.zero;
         }
-
     }
 }

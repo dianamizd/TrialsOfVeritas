@@ -414,9 +414,11 @@ MonoBehaviour:
   bulletSpawn: {fileID: 533421924}
   dodgeSpeed: 5
   dodgeDistance: 5
-  currentdodgeTime: 1
+  currentDodgeTime: 1
+  maxDodgeCooldownTime: 2
   bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
   bulletspeed: 1500
+  playercharacter: {fileID: 370491647}
 --- !u!114 &370491654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,9 +914,10 @@ MonoBehaviour:
   dodgeSpeed: 5
   dodgeDistance: 5
   currentDodgeTime: 1
-  currentDodgeCooldownTime: 0
+  maxDodgeCooldownTime: 2
   bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
   bulletspeed: 500
+  playercharacter: {fileID: 1102272343}
 --- !u!114 &1102272350
 MonoBehaviour:
   m_ObjectHideFlags: 0

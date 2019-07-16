@@ -49,25 +49,26 @@ public class PlayerOneHealth : MonoBehaviour
         }
     }
 
-    //for damage from projectiles
+   
     private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Projectile")
+    { 
+        //for damage from projectiles
+        if (other.gameObject.tag == "Projectile")
         {
             healthBar.value -= 5f;
             currentHealth = healthBar.value;
         }
-    }
 
-    //player health increase upon picking up power-up
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Power-Up"))
+        //player health increase upon picking up power-up
+        if (other.CompareTag("Power-Up"))
         {
             healthBar.value += 10f;
             currentHealth = healthBar.value;
         }
     }
+
+    
+    
 
 
 }
