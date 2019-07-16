@@ -913,7 +913,6 @@ MonoBehaviour:
   dodgeDistance: 5
   currentDodgeTime: 1
   currentDodgeCooldownTime: 0
-  maxDodgeCooldownTime: 10
   bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
   bulletspeed: 500
 --- !u!114 &1102272350
@@ -1067,7 +1066,7 @@ GameObject:
   - component: {fileID: 1488218435}
   m_Layer: 0
   m_Name: Power Up
-  m_TagString: Untagged
+  m_TagString: Power-Up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
