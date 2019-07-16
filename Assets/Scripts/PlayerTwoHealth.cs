@@ -32,7 +32,8 @@ public class PlayerTwoHealth : MonoBehaviour
         {
             gameObject.transform.position = respawnPoint.transform.position;
 
-            currentHealth = 0;
+            healthBar.value = 0;
+            currentHealth = healthBar.value;
 
             //also respawn other character and reset their health.
         }
@@ -46,11 +47,15 @@ public class PlayerTwoHealth : MonoBehaviour
             healthBar.value += 5f;
             currentHealth = healthBar.value;
         }
+    }
 
-        //if (collision.gameObject.tag == "Projectile")
-        //{
-        //    healthBar.value -= 5f;
-        //    currentHealth = healthBar.value;
-        //}
+    //for damage from projectiles
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Projectile")
+        {
+            healthBar.value += 5f;
+            currentHealth = healthBar.value;
+        }
     }
 }

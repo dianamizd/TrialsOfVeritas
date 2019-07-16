@@ -27,11 +27,12 @@ public class PlayerOneHealth : MonoBehaviour
     private void Update()
     {
         //when health = 0, the character will respawn, health for the player goes back up
-        if(currentHealth == 0f)
+        if (currentHealth == 0f)
         {
             gameObject.transform.position = respawnPoint.transform.position;
 
-            currentHealth = maxHealth;
+            healthBar.value = 100;
+            currentHealth = healthBar.value;
 
             //update the round? (or maybe in another script)
             //also respawn other player and reset their health
@@ -46,12 +47,15 @@ public class PlayerOneHealth : MonoBehaviour
             healthBar.value -= 5f;
             currentHealth = healthBar.value;
         }
+    }
 
-        ////for projectile - but commented out because it affected the player shooting the projectile and not the other player
-        //if(collision.gameObject.tag == "Projectile")
-        //{
-        //    healthBar.value -= 5f;
-        //    currentHealth = healthBar.value;
-        //}
+    //for damage from projectiles
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Projectile")
+        {
+            healthBar.value -= 5f;
+            currentHealth = healthBar.value;
+        }
     }
 }
