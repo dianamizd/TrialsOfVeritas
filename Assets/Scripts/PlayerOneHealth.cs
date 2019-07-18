@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class PlayerOneHealth : MonoBehaviour
 {
     //healthbar
-    [SerializeField] private Slider healthBar;
+    public Slider healthBar;
 
     //setting health variables - but will need to change for each different character
     private float maxHealth = 100;
-    private float currentHealth;
+    public float currentHealth;
 
     //variable for the respawn point (empty game object)
-    [SerializeField] private Transform respawnPoint;
+    public Transform respawnPoint;
+
+    //initialise script, to be able to pull references to it
+    [SerializeField] private PlayerTwoHealth playerTwoScript;
 
     // Start is called before the first frame update
     void Start()
@@ -26,30 +29,15 @@ public class PlayerOneHealth : MonoBehaviour
 
     private void Update()
     {
-        //when health = 0, the character will respawn, health for the player goes back up
+        //when health = 0, the character will respawn, health for the player goes back up, and restart the positions of the other player
         if (currentHealth == 0f)
         {
-            gameObject.transform.position = respawnPoint.transform.position;
+            WhenNoHealthOne();
 
-            healthBar.value = 100;
-            currentHealth = healthBar.value;
-
-            //update the round? (or maybe in another script)
-            //also respawn other player and reset their health
+            playerTwoScript.WhenNoHealthTwo();
         }
     }
 
-    //currently, when the player collides with the other player, they'll take damage - this can be changed when projectiles are implemeted
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            healthBar.value -= 5f;
-            currentHealth = healthBar.value;
-        }
-    }
-
-   
     private void OnTriggerEnter(Collider other)
     { 
         //for damage from projectiles
@@ -67,8 +55,12 @@ public class PlayerOneHealth : MonoBehaviour
         }
     }
 
-    
-    
+    //method for when the player dies
+    public void WhenNoHealthOne()
+    {
+        gameObject.transform.position = respawnPoint.transform.position;
 
-
+        healthBar.value = 100;
+        currentHealth = healthBar.value;
+    }
 }

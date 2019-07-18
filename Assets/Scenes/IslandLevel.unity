@@ -434,6 +434,7 @@ MonoBehaviour:
   healthBar: {fileID: 1827356727}
   currentHealth: 0
   respawnPoint: {fileID: 1566590169}
+  playerOneScript: {fileID: 1102272350}
 --- !u!1 &384342819
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +932,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 903876405}
+  currentHealth: 0
   respawnPoint: {fileID: 1352638186}
+  playerTwoScript: {fileID: 370491654}
 --- !u!1 &1157570738
 GameObject:
   m_ObjectHideFlags: 0
