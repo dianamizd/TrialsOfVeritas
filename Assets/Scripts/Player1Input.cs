@@ -14,7 +14,6 @@ public class Player1Input : MonoBehaviour
 
     public GameObject bulletSpawn;
 
-
     //speed of dodge
     public float dodgeSpeed = 1.0f;
 
@@ -41,8 +40,6 @@ public class Player1Input : MonoBehaviour
 
     //speed of projectile
     public float bulletspeed = 100f;
-
-    public GameObject playercharacter;
 
     // Start is called before the first frame update
     void Start()
@@ -71,12 +68,14 @@ public class Player1Input : MonoBehaviour
         v = Input.GetAxis("Vertical_P1");
 
         //moves player
-        transform.Translate(movement * Time.deltaTime * speed, 0);
+        transform.Translate(movement * Time.deltaTime * speed, Space.World);
+
+        float angle = Mathf.Atan2(h, v) * Mathf.Rad2Deg;
 
         //makes player face direction of movement
-        if ((movement.x != 0) || (movement.y != 0))
+        if ((movement.x != 0f) || (movement.y != 0f))
         {
-            transform.rotation = Quaternion.LookRotation(movement);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
 
         Debug.Log(h);
@@ -89,6 +88,8 @@ public class Player1Input : MonoBehaviour
             GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
             instBulletRigidbody.AddForce(transform.forward * 500);
+
+            Object.Destroy(instBullet, 2.0f);
         }
 
         //dodging input for player

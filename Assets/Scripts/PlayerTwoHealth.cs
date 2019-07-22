@@ -13,6 +13,9 @@ public class PlayerTwoHealth : MonoBehaviour
     //setting health variable
     public float currentHealth;
 
+    //current rounds claimed
+    public int playerTwoRoundCount;
+
     //variable for respawn point
     public Transform respawnPoint;
 
@@ -45,6 +48,8 @@ public class PlayerTwoHealth : MonoBehaviour
         {
             healthBar.value += 5f;
             currentHealth = healthBar.value;
+
+            Object.Destroy(other.gameObject);
         }
     }
 
@@ -55,5 +60,10 @@ public class PlayerTwoHealth : MonoBehaviour
 
         healthBar.value = 0;
         currentHealth = healthBar.value;
+
+        if (playerTwoRoundCount < 3)
+        {
+            playerTwoRoundCount += 1;
+        }
     }
 }

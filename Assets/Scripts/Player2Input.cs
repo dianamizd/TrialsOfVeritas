@@ -10,7 +10,7 @@ public class Player2Input : MonoBehaviour
 
     public int speed = 5;
 
-    public Vector3 movement;
+    private Vector3 movement;
 
     public GameObject bulletSpawn;
 
@@ -88,8 +88,9 @@ public class Player2Input : MonoBehaviour
 
             GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce(transform.forward*500);    
-           
+            instBulletRigidbody.AddForce(transform.forward*500);
+
+            Object.Destroy(instBullet, 2.0f);
         }
 
         //dodging input for player

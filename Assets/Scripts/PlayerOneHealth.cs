@@ -9,8 +9,11 @@ public class PlayerOneHealth : MonoBehaviour
     public Slider healthBar;
 
     //setting health variables - but will need to change for each different character
-    private float maxHealth = 100;
+    public float maxHealth = 100;
     public float currentHealth;
+
+    //current rounds claimed
+    public int playerOneRoundCount;
 
     //variable for the respawn point (empty game object)
     public Transform respawnPoint;
@@ -45,6 +48,8 @@ public class PlayerOneHealth : MonoBehaviour
         {
             healthBar.value -= 5f;
             currentHealth = healthBar.value;
+
+            Object.Destroy(other.gameObject);
         }
 
         //player health increase upon picking up power-up
@@ -62,5 +67,10 @@ public class PlayerOneHealth : MonoBehaviour
 
         healthBar.value = 100;
         currentHealth = healthBar.value;
+
+        if (playerOneRoundCount < 3)
+        {
+            playerOneRoundCount += 1;
+        }
     }
 }
