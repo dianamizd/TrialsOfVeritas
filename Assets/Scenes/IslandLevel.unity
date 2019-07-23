@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2074dac60aa5094491554e5fb6f8421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 10
   bulletSpawn: {fileID: 758725415}
   dodgeSpeed: 5
   dodgeDistance: 5
@@ -972,7 +972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89b7640e055da345aec55fe870514a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 10
   bulletSpawn: {fileID: 1058481619}
   dodgeSpeed: 5
   dodgeDistance: 5
