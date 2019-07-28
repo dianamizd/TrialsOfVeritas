@@ -417,7 +417,7 @@ MonoBehaviour:
   currentDodgeTime: 1
   maxDodgeCooldownTime: 2
   bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
-  bulletspeed: 1500
+  bulletSpeed: 1000
   playercharacter: {fileID: 370491647}
 --- !u!114 &370491654
 MonoBehaviour:
@@ -433,7 +433,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1827356727}
   currentHealth: 0
-  playerTwoRoundCount: 0
+  currentRoundCount: 0
+  maxRoundCount: 2
   respawnPoint: {fileID: 1566590169}
   playerOneScript: {fileID: 1102272350}
 --- !u!1 &384342819
@@ -979,7 +980,7 @@ MonoBehaviour:
   currentDodgeTime: 1
   maxDodgeCooldownTime: 2
   bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
-  bulletspeed: 500
+  bulletSpeed: 1000
 --- !u!114 &1102272350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,9 +994,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 903876405}
-  maxHealth: 100
+  maxHealth: 90
   currentHealth: 0
-  playerOneRoundCount: 0
+  currentRoundCount: 0
   respawnPoint: {fileID: 1352638186}
   playerTwoScript: {fileID: 370491654}
 --- !u!1 &1157570738

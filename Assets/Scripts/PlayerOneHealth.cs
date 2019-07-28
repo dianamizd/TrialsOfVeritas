@@ -13,7 +13,9 @@ public class PlayerOneHealth : MonoBehaviour
     public float currentHealth;
 
     //current rounds claimed
-    public int playerOneRoundCount;
+    public int currentRoundCount;
+
+    private int maxRoundCount = 3;
 
     //variable for the respawn point (empty game object)
     public Transform respawnPoint;
@@ -24,10 +26,12 @@ public class PlayerOneHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
+        
         //when the game starts, players health=max value
-        healthBar.value = maxHealth;
-        //health gets update when damage is taken
-        currentHealth = healthBar.value;
+        healthBar.value = currentHealth/maxHealth;
+
+      
     }
 
     private void Update()
@@ -36,6 +40,11 @@ public class PlayerOneHealth : MonoBehaviour
         if (currentHealth == 0f)
         {
             WhenNoHealthOne();
+
+            if (currentRoundCount < maxRoundCount)
+            {
+                currentRoundCount += 1;
+            }
 
             playerTwoScript.WhenNoHealthTwo();
         }
@@ -47,6 +56,7 @@ public class PlayerOneHealth : MonoBehaviour
         if (other.gameObject.tag == "Projectile")
         {
             healthBar.value -= 5f;
+            //health gets update when damage is taken
             currentHealth = healthBar.value;
 
             Object.Destroy(other.gameObject);
@@ -65,12 +75,8 @@ public class PlayerOneHealth : MonoBehaviour
     {
         gameObject.transform.position = respawnPoint.transform.position;
 
-        healthBar.value = 100;
+        healthBar.value = maxHealth/currentHealth;
         currentHealth = healthBar.value;
 
-        if (playerOneRoundCount < 3)
-        {
-            playerOneRoundCount += 1;
-        }
     }
 }

@@ -39,7 +39,7 @@ public class Player2Input : MonoBehaviour
     public GameObject bullet;
 
     //speed of projectile
-    public float bulletspeed = 100f;
+    public float bulletSpeed = 100f;
 
     public GameObject playercharacter;
 
@@ -88,7 +88,7 @@ public class Player2Input : MonoBehaviour
 
             GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
             Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce(transform.forward*500);
+            instBulletRigidbody.AddForce(transform.forward * bulletSpeed);
 
             Object.Destroy(instBullet, 2.0f);
         }

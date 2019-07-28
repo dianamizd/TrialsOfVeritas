@@ -14,7 +14,9 @@ public class PlayerTwoHealth : MonoBehaviour
     public float currentHealth;
 
     //current rounds claimed
-    public int playerTwoRoundCount;
+    public int currentRoundCount;
+
+    public int maxRoundCount = 2;
 
     //variable for respawn point
     public Transform respawnPoint;
@@ -36,6 +38,11 @@ public class PlayerTwoHealth : MonoBehaviour
         if (currentHealth == 100f)
         {
             WhenNoHealthTwo();
+
+            if (currentRoundCount <= maxRoundCount)
+            {
+                currentRoundCount += 1;
+            }
 
             playerOneScript.WhenNoHealthOne();
         }
@@ -61,9 +68,6 @@ public class PlayerTwoHealth : MonoBehaviour
         healthBar.value = 0;
         currentHealth = healthBar.value;
 
-        if (playerTwoRoundCount < 3)
-        {
-            playerTwoRoundCount += 1;
-        }
+        
     }
 }
