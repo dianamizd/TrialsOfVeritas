@@ -10,7 +10,7 @@ public class Player1Input : MonoBehaviour
     private float v;
 
     //player movement speed
-    public int movementSpeed = 5;
+    public int movementSpeed = 10;
 
     Vector3 movement;
 
@@ -25,6 +25,11 @@ public class Player1Input : MonoBehaviour
     //display round count in UI text
     public Text roundCount;
 
+    //display name of chosen class
+    public Text Name;
+
+    //private string newName;
+
     //setting health variables - but will need to change for each different character
     public float maxHealth = 100;
     public float currentHealth;
@@ -32,7 +37,7 @@ public class Player1Input : MonoBehaviour
     //current rounds claimed
     public int currentRoundCount;
 
-    private int maxRoundCount = 3;
+    private int maxRoundCount = 2;
 
     //variable for the respawn point (empty game object)
     public Transform respawnPoint;
@@ -71,6 +76,10 @@ public class Player1Input : MonoBehaviour
     void Start()
     {
         giveMaxHealth();
+
+        className();
+
+        //newName = GetComponent<Text>();
 
         currentRoundCount = 0;
 
@@ -195,6 +204,13 @@ public class Player1Input : MonoBehaviour
         //resets health value
         giveMaxHealth();
 
+    }
+
+    private void className()
+    {
+        // Name.GetComponent<Text>().text = Name;
+
+        Name.text = "Default"; 
     }
 
     //gives player max health upon start or round reset

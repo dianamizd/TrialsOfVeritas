@@ -10,7 +10,7 @@ public class Player2Input : MonoBehaviour
     private float v;
 
     //player movement speed
-    public int movementSpeed = 5;
+    public int movementSpeed = 10;
 
     private Vector3 movement;
 
@@ -19,7 +19,14 @@ public class Player2Input : MonoBehaviour
     //healthbar
     public Slider healthBar;
 
+    //display health value in UI
+    public Text healthValue;
+
+    //display round count in UI
     public Text roundCount;
+
+    //display name of chosen class
+    public Text Name;
 
     //setting health variable
     public float maxHealth = 100;
@@ -67,11 +74,11 @@ public class Player2Input : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //when the game starts, players health=0 (as it works in reverse)
-        healthBar.value = 0;
-       
-        //health gets update when damage is taken
-        currentHealth = healthBar.value;
+        giveMaxHealth();
+
+        className();
+
+        currentRoundCount = 0;
 
         roundCount.text = currentRoundCount + "";
     }
@@ -80,7 +87,7 @@ public class Player2Input : MonoBehaviour
     void Update()
     {
         //when the character's health = 0 (which is 100), the character will reset both their position and health
-        if (currentHealth == maxHealth)
+        if (currentHealth == 0f)
         {
             WhenNoHealthTwo();
 
@@ -175,8 +182,10 @@ public class Player2Input : MonoBehaviour
     {
         if (other.gameObject.tag == "Projectile")
         {
-            healthBar.value += 5f;
+            healthBar.value -= 5f;
             currentHealth = healthBar.value;
+
+            healthValue.text = currentHealth + "/" + maxHealth;
 
             Object.Destroy(other.gameObject);
         }
@@ -187,15 +196,27 @@ public class Player2Input : MonoBehaviour
     {
         gameObject.transform.position = respawnPoint.transform.position;
 
-        healthBar.value = 0;
-        currentHealth = healthBar.value;
+        //resets health value
+        giveMaxHealth();
 
         
     }
 
+    private void className()
+    {
+        Name.text = "Default";
+    }
+
     private void giveMaxHealth()
     {
+        //when the game starts, players health=max value
+        currentHealth = maxHealth;
 
+        healthBar.maxValue = maxHealth;
+
+        healthBar.value = maxHealth;
+
+        healthValue.text = currentHealth + "/" + maxHealth;
     }
 
     private void addRound()
