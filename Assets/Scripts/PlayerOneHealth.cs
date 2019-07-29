@@ -8,6 +8,8 @@ public class PlayerOneHealth : MonoBehaviour
     //healthbar
     public Slider healthBar;
 
+    public Text healthValue;
+
     //setting health variables - but will need to change for each different character
     public float maxHealth = 100;
     public float currentHealth;
@@ -27,9 +29,13 @@ public class PlayerOneHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+
+        healthBar.maxValue = maxHealth;
         
         //when the game starts, players health=max value
-        healthBar.value = currentHealth/maxHealth;
+        healthBar.value = maxHealth;
+
+        //healthValue.text;
 
       
     }
@@ -75,7 +81,9 @@ public class PlayerOneHealth : MonoBehaviour
     {
         gameObject.transform.position = respawnPoint.transform.position;
 
-        healthBar.value = maxHealth/currentHealth;
+        healthBar.maxValue = maxHealth;
+
+        healthBar.value = maxHealth;
         currentHealth = healthBar.value;
 
     }

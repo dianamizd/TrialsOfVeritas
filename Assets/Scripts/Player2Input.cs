@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player2Input : MonoBehaviour
 {
@@ -13,6 +14,22 @@ public class Player2Input : MonoBehaviour
     private Vector3 movement;
 
     public GameObject bulletSpawn;
+
+    //healthbar
+    public Slider healthBar;
+
+    //setting health variable
+    public float currentHealth;
+
+    //current rounds claimed
+    public int currentRoundCount;
+
+    public int maxRoundCount = 2;
+
+    //variable for respawn point
+    public Transform respawnPoint;
+
+    [SerializeField] private Player1Input playerOneScript;
 
     //speed of dodge
     public float dodgeSpeed = 1.0f;
@@ -46,12 +63,28 @@ public class Player2Input : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
- 
+        //when the game starts, players health=0 (as it works in reverse)
+        healthBar.value = 0;
+        //health gets update when damage is taken
+        currentHealth = healthBar.value;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //when the character's health = 0 (which is 100), the character will reset both their position and health
+        if (currentHealth == 100f)
+        {
+            WhenNoHealthTwo();
+
+            if (currentRoundCount <= maxRoundCount)
+            {
+                currentRoundCount += 1;
+            }
+
+            playerOneScript.WhenNoHealthOne();
+        }
+
         //movement for player
         movement = new Vector3(h, 0, v);
 
@@ -131,5 +164,33 @@ public class Player2Input : MonoBehaviour
         {
             movement = Vector3.zero;
         }
+    }
+
+    //for damage from projectiles
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Projectile")
+        {
+            healthBar.value += 5f;
+            currentHealth = healthBar.value;
+
+            Object.Destroy(other.gameObject);
+        }
+    }
+
+    //method for when the player dies
+    public void WhenNoHealthTwo()
+    {
+        gameObject.transform.position = respawnPoint.transform.position;
+
+        healthBar.value = 0;
+        currentHealth = healthBar.value;
+
+
+    }
+
+    private void giveMaxHealth()
+    {
+
     }
 }
