@@ -9,7 +9,8 @@ public class Player2Input : MonoBehaviour
 
     private float v;
 
-    public int speed = 5;
+    //player movement speed
+    public int movementSpeed = 5;
 
     private Vector3 movement;
 
@@ -18,7 +19,10 @@ public class Player2Input : MonoBehaviour
     //healthbar
     public Slider healthBar;
 
+    public Text roundCount;
+
     //setting health variable
+    public float maxHealth = 100;
     public float currentHealth;
 
     //current rounds claimed
@@ -65,22 +69,22 @@ public class Player2Input : MonoBehaviour
     {
         //when the game starts, players health=0 (as it works in reverse)
         healthBar.value = 0;
+       
         //health gets update when damage is taken
         currentHealth = healthBar.value;
+
+        roundCount.text = currentRoundCount + "";
     }
 
     // Update is called once per frame
     void Update()
     {
         //when the character's health = 0 (which is 100), the character will reset both their position and health
-        if (currentHealth == 100f)
+        if (currentHealth == maxHealth)
         {
             WhenNoHealthTwo();
 
-            if (currentRoundCount <= maxRoundCount)
-            {
-                currentRoundCount += 1;
-            }
+            addRound();
 
             playerOneScript.WhenNoHealthOne();
         }
@@ -103,7 +107,7 @@ public class Player2Input : MonoBehaviour
         }
 
         //moves player
-        transform.Translate(movement * Time.deltaTime * speed, 0);
+        transform.Translate(movement * Time.deltaTime * movementSpeed, 0);
 
         //makes player face direction of movement
         if((movement.x != 0) || (movement.y != 0)) 
@@ -186,11 +190,29 @@ public class Player2Input : MonoBehaviour
         healthBar.value = 0;
         currentHealth = healthBar.value;
 
-
+        
     }
 
     private void giveMaxHealth()
     {
 
+    }
+
+    private void addRound()
+    {
+        //if (currentRoundCount <= maxRoundCount)
+        //{
+            //currentRoundCount += 1;
+        //}
+
+        if(currentRoundCount == maxRoundCount)
+        {
+            Application.Quit();
+        }
+
+        else
+        {
+            currentRoundCount += 1;
+        }
     }
 }

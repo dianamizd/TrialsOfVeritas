@@ -9,7 +9,8 @@ public class Player1Input : MonoBehaviour
 
     private float v;
 
-    public int speed = 5;
+    //player movement speed
+    public int movementSpeed = 5;
 
     Vector3 movement;
 
@@ -18,7 +19,11 @@ public class Player1Input : MonoBehaviour
     //healthbar
     public Slider healthBar;
 
+    //display health value in UI text
     public Text healthValue;
+
+    //display round count in UI text
+    public Text roundCount;
 
     //setting health variables - but will need to change for each different character
     public float maxHealth = 100;
@@ -66,6 +71,10 @@ public class Player1Input : MonoBehaviour
     void Start()
     {
         giveMaxHealth();
+
+        currentRoundCount = 0;
+
+        roundCount.text = currentRoundCount + "";
     }
 
     // Update is called once per frame
@@ -76,10 +85,7 @@ public class Player1Input : MonoBehaviour
         {
             WhenNoHealthOne();
 
-            if (currentRoundCount < maxRoundCount)
-            {
-                currentRoundCount += 1;
-            }
+            addRound();
 
             playerTwoScript.WhenNoHealthTwo();
         }
@@ -102,7 +108,7 @@ public class Player1Input : MonoBehaviour
         v = Input.GetAxis("Vertical_P1");
 
         //moves player
-        transform.Translate(movement * Time.deltaTime * speed, Space.World);
+        transform.Translate(movement * Time.deltaTime * movementSpeed, Space.World);
 
         float angle = Mathf.Atan2(h, v) * Mathf.Rad2Deg;
 
@@ -168,6 +174,7 @@ public class Player1Input : MonoBehaviour
             healthBar.value -= 5f;
             //health gets update when damage is taken
             currentHealth = healthBar.value;
+            healthValue.text = currentHealth + "/" + maxHealth;
 
             Object.Destroy(other.gameObject);
         }
@@ -190,6 +197,7 @@ public class Player1Input : MonoBehaviour
 
     }
 
+    //gives player max health upon start or round reset
     private void giveMaxHealth()
     {
         //when the game starts, players health=max value
@@ -199,6 +207,27 @@ public class Player1Input : MonoBehaviour
 
         healthBar.value = maxHealth;
 
-        //healthValue.text;
+        healthValue.text = currentHealth + "/" + maxHealth; 
+    }
+
+    //gives player round upon win
+    private void addRound()
+    {
+        //if (currentRoundCount < maxRoundCount)
+       // {
+           // currentRoundCount += 1;
+       // }
+
+        if(currentRoundCount == maxRoundCount)
+        {
+            Application.Quit();
+        }
+
+        else
+        {
+            currentRoundCount += 1;
+
+            roundCount.text = currentRoundCount + "";
+        }
     }
 }
