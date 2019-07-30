@@ -69,6 +69,10 @@ public class Player2Input : MonoBehaviour
     //speed of projectile
     public float bulletSpeed = 100f;
 
+    private float currentBulletCooldownTime = 0.0f;
+
+    public float maxBulletCooldownTime = 1.0f;
+
     public GameObject playercharacter;
 
     // Start is called before the first frame update
@@ -91,7 +95,7 @@ public class Player2Input : MonoBehaviour
         {
             WhenNoHealthTwo();
 
-            addRound();
+            playerOneScript.addRound();
 
             playerOneScript.WhenNoHealthOne();
         }
@@ -124,17 +128,24 @@ public class Player2Input : MonoBehaviour
         
 
         Debug.Log(h);
-        
+
         //attacking (firing) input for player
-        if (Input.GetButtonDown("Fire_P2"))
+        if (Time.time > currentBulletCooldownTime)
         {
-            print("player 2 fire");
+            print("player 2 shoot ready");
 
-            GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
-            Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce(transform.forward * bulletSpeed);
+            if (Input.GetButtonDown("Fire_P2"))
+            {
+                print("player 2 fire");
 
-            Object.Destroy(instBullet, 2.0f);
+                GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
+                Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
+                instBulletRigidbody.AddForce(transform.forward * bulletSpeed);
+
+                currentBulletCooldownTime = Time.time + maxBulletCooldownTime;
+
+                Object.Destroy(instBullet, 2.0f);
+            }
         }
 
         //dodging input for player
@@ -182,7 +193,7 @@ public class Player2Input : MonoBehaviour
     {
         if (other.gameObject.tag == "Projectile")
         {
-            healthBar.value -= 5f;
+            healthBar.value -= 10f;
             currentHealth = healthBar.value;
 
             healthValue.text = currentHealth + "/" + maxHealth;
@@ -198,8 +209,6 @@ public class Player2Input : MonoBehaviour
 
         //resets health value
         giveMaxHealth();
-
-        
     }
 
     private void className()
@@ -219,21 +228,13 @@ public class Player2Input : MonoBehaviour
         healthValue.text = currentHealth + "/" + maxHealth;
     }
 
-    private void addRound()
+    public void addRound()
     {
-        //if (currentRoundCount <= maxRoundCount)
-        //{
-            //currentRoundCount += 1;
-        //}
-
-        if(currentRoundCount == maxRoundCount)
-        {
-            Application.Quit();
-        }
-
-        else
+        if(currentRoundCount < maxRoundCount)
         {
             currentRoundCount += 1;
+
+            roundCount.text = currentRoundCount + "";
         }
     }
 }
