@@ -12,6 +12,10 @@ public class Player1Input : MonoBehaviour
     //player movement speed
     public int movementSpeed = 10;
 
+    private Vector3 lookDirection = Vector3.zero;
+
+    private float lookSpeed = 1000f;
+
     Vector3 movement;
 
     public GameObject bulletSpawn;
@@ -37,7 +41,7 @@ public class Player1Input : MonoBehaviour
     //current rounds claimed
     public int currentRoundCount;
 
-    private int maxRoundCount = 2;
+    public int maxRoundCount = 2;
 
     //variable for the respawn point (empty game object)
     public Transform respawnPoint;
@@ -72,6 +76,10 @@ public class Player1Input : MonoBehaviour
     //speed of projectile
     public float bulletSpeed = 100f;
 
+    private float currentBulletCooldownTime = 0.0f;
+
+    public float maxBulletCooldownTime = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,13 +102,15 @@ public class Player1Input : MonoBehaviour
         {
             WhenNoHealthOne();
 
-            addRound();
+            playerTwoScript.addRound();
 
             playerTwoScript.WhenNoHealthTwo();
         }
 
         //movement input for player
         movement = new Vector3(h, 0, v);
+
+        
 
         if (Input.GetButtonDown("Horizontal_P1"))
         {
@@ -119,27 +129,42 @@ public class Player1Input : MonoBehaviour
         //moves player
         transform.Translate(movement * Time.deltaTime * movementSpeed, Space.World);
 
+        //lookDirection = new Vector3(h, 0, v);
+
+        //Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+
+        //transform.localRotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSpeed);
+
         float angle = Mathf.Atan2(h, v) * Mathf.Rad2Deg;
 
         //makes player face direction of movement
         if ((movement.x != 0f) || (movement.z != 0f))
         {
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+          transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
 
         Debug.Log(h);
 
         //attacking (firing) input for player
-        if(Input.GetButtonDown("Fire_P1"))
+        if(Time.time > currentBulletCooldownTime)
         {
-            print("player 1 fire");
+            print("player 1 shoot ready");
 
-            GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
-            Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce(transform.forward * bulletSpeed);
+            if (Input.GetButtonDown("Fire_P1"))
+            {
+                print("player 1 fire");
 
-            Object.Destroy(instBullet, 2.0f);
+                GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
+                Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
+                instBulletRigidbody.AddForce(transform.forward * bulletSpeed);
+
+                currentBulletCooldownTime = Time.time + maxBulletCooldownTime;
+
+                Object.Destroy(instBullet, 2.0f);
+            }
         }
+
+        
 
         //dodging input for player
         if(Time.time > currentDodgeCooldownTime)
@@ -180,7 +205,7 @@ public class Player1Input : MonoBehaviour
         //for damage from projectiles
         if (other.gameObject.tag == "Projectile")
         {
-            healthBar.value -= 5f;
+            healthBar.value -= 10f;
             //health gets update when damage is taken
             currentHealth = healthBar.value;
             healthValue.text = currentHealth + "/" + maxHealth;
@@ -227,19 +252,14 @@ public class Player1Input : MonoBehaviour
     }
 
     //gives player round upon win
-    private void addRound()
+    public void addRound()
     {
         //if (currentRoundCount < maxRoundCount)
        // {
            // currentRoundCount += 1;
        // }
 
-        if(currentRoundCount == maxRoundCount)
-        {
-            Application.Quit();
-        }
-
-        else
+        if(currentRoundCount < maxRoundCount)
         {
             currentRoundCount += 1;
 

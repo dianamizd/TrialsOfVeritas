@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 91ebe1209a29b334684e80e3b032dedd
   - enabled: 1
-    path: Assets/Scenes/DM_CharaAndLvlSelectTest.unity
+    path: Assets/Scenes/LevelSelect.unity
     guid: 3a743dcc7052eff4ebce7f85d3bd3a7a
   - enabled: 1
-    path: Assets/Scenes/IslandLevel.unity
+    path: Assets/Scenes/TestLevel.unity
     guid: 952e8a6b7331e1545a367e0bec3b7499
   - enabled: 1
     path: Assets/Scenes/LavaLevel.unity
