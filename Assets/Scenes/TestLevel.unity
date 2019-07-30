@@ -1775,6 +1775,11 @@ PrefabInstance:
       propertyPath: playerTwoScript
       value: 
       objectReference: {fileID: 370491653}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dba890c5c90add64388b726b712b944c, type: 3}
 --- !u!1001 &6974248165028308030
