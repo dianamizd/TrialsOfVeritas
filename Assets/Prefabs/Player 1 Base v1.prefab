@@ -42,8 +42,12 @@ GameObject:
   - component: {fileID: 2734380867751042583}
   - component: {fileID: 2734380867751042578}
   - component: {fileID: 2734380867751042579}
+<<<<<<< HEAD
+  - component: {fileID: 4682488150886449182}
+=======
   - component: {fileID: 1271035114183111255}
   - component: {fileID: 8617921050787923595}
+>>>>>>> 4ddbd160b34c11d3e4109621d50e92e90513367a
   m_Layer: 0
   m_Name: Player 1 Base v1
   m_TagString: Player
@@ -130,6 +134,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
+--- !u!95 &4682488150886449182
+Animator:
+  serializedVersion: 3
+=======
 --- !u!222 &1271035114183111255
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -140,12 +149,25 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!114 &8617921050787923595
 MonoBehaviour:
+>>>>>>> 4ddbd160b34c11d3e4109621d50e92e90513367a
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2734380867751042584}
   m_Enabled: 1
+<<<<<<< HEAD
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+=======
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -247,3 +269,4 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7465569757117348200}
   m_PrefabAsset: {fileID: 0}
+>>>>>>> 4ddbd160b34c11d3e4109621d50e92e90513367a
