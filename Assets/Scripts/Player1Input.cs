@@ -255,6 +255,8 @@ public class Player1Input : MonoBehaviour
         //resets health value
         giveMaxHealth();
 
+        bulletDamage = playerTwoScript.bulletDamage;
+
     }
 
     //method to specify current class

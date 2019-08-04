@@ -18,18 +18,18 @@ public class ScoreCheck : MonoBehaviour
         {
             WinText.text = "PLAYER 1 WIN";
 
-            GetComponent<Player1Input>().enabled = false;
+            playerOneScript.enabled = false;
 
-            GetComponent<Player2Input>().enabled = false;
+            playerTwoScript.enabled = false;
         }
 
         if (playerTwoScript.currentRoundCount == playerTwoScript.maxRoundCount)
         {
             WinText.text = "PLAYER 2 WIN";
 
-            GetComponent<Player1Input>().enabled = false;
+            playerOneScript.enabled = false;
 
-            GetComponent<Player2Input>().enabled = false;
+            playerTwoScript.enabled = false;
         }
     }
 }

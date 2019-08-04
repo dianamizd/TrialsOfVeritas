@@ -233,6 +233,8 @@ public class Player2Input : MonoBehaviour
 
         //resets health value
         giveMaxHealth();
+
+        bulletDamage = playerOneScript.bulletDamage;
     }
 
     private void className()
