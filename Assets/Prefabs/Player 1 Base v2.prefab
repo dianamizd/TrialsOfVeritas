@@ -250,8 +250,10 @@ MonoBehaviour:
   dodgeDistance: 5
   currentDodgeTime: 1
   maxDodgeCooldownTime: 1
+  maxInvincibleTime: 1.5
   bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
   bulletSpeed: 2500
+  bulletDamage: 10
   maxBulletCooldownTime: 1
 --- !u!54 &5117043470968407251
 Rigidbody:

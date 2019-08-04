@@ -63,11 +63,19 @@ public class Player2Input : MonoBehaviour
     //maximum cooldown time for dodge
     public float maxDodgeCooldownTime = 2.0f;
 
+    private bool invincibleState = false;
+
+    private float currentInvincibleTime = 0.0f;
+
+    public float maxInvincibleTime = 1.0f;
+
     //defining projectile
     public GameObject bullet;
 
     //speed of projectile
     public float bulletSpeed = 100f;
+
+    public float bulletDamage = 10f;
 
     private float currentBulletCooldownTime = 0.0f;
 
@@ -98,6 +106,18 @@ public class Player2Input : MonoBehaviour
             playerOneScript.addRound();
 
             playerOneScript.WhenNoHealthOne();
+        }
+
+        if (invincibleState)
+        {
+            if (Time.time > currentInvincibleTime)
+            {
+                print("player 1 invincible");
+
+                currentInvincibleTime = Time.time + maxInvincibleTime;
+
+                invincibleState = false;
+            }
         }
 
         //movement for player
@@ -155,17 +175,20 @@ public class Player2Input : MonoBehaviour
 
             //playercharacter.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-            if (Input.GetButtonDown("Dodge_P2"))
+            if(!invincibleState)
             {
-                print("player 2 dodge, now on cooldown");
+                if (Input.GetButtonDown("Dodge_P2"))
+                {
+                    print("player 2 dodge, now on cooldown");
 
-                currentDodgeTime = 0.0f;
+                    currentDodgeTime = 0.0f;
 
-                //active cooldown for dodge
-                currentDodgeCooldownTime = Time.time + maxDodgeCooldownTime;
+                    //active cooldown for dodge
+                    currentDodgeCooldownTime = Time.time + maxDodgeCooldownTime;
+
+                    invincibleState = true;
+                }
             }
-
-           
         }
 
         //during dodge period
@@ -191,15 +214,16 @@ public class Player2Input : MonoBehaviour
     //for damage from projectiles
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Projectile")
+        if(!invincibleState)
         {
-            healthBar.value -= 10f;
-            currentHealth = healthBar.value;
+            if (other.gameObject.tag == "Projectile")
+            {
+                playerDamage();
 
-            healthValue.text = currentHealth + "/" + maxHealth;
-
-            Object.Destroy(other.gameObject);
+                Object.Destroy(other.gameObject);
+            }
         }
+        
     }
 
     //method for when the player dies
@@ -236,5 +260,13 @@ public class Player2Input : MonoBehaviour
 
             roundCount.text = currentRoundCount + "";
         }
+    }
+
+    public void playerDamage()
+    {
+        healthBar.value -= playerOneScript.bulletDamage;
+        currentHealth = healthBar.value;
+
+        healthValue.text = currentHealth + "/" + maxHealth;
     }
 }

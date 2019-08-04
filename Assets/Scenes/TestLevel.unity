@@ -274,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 3882897005412205003, guid: 7b1868b05e384e1468c78978fad8b1e1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3882897005412205003, guid: 7b1868b05e384e1468c78978fad8b1e1,
         type: 3}
@@ -483,7 +483,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &584316771
 GameObject:
@@ -618,7 +618,7 @@ Transform:
   m_GameObject: {fileID: 763546912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 4.000001, y: 4, z: 4.000001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -994,7 +994,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1488218435
 MonoBehaviour:
@@ -1212,7 +1212,7 @@ PrefabInstance:
     - target: {fileID: 9022960162441519913, guid: 2399e34f3a2b6254db8936c400c48d9e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9022960162441519913, guid: 2399e34f3a2b6254db8936c400c48d9e,
         type: 3}
@@ -1621,11 +1621,6 @@ PrefabInstance:
       propertyPath: playerOneScript
       value: 
       objectReference: {fileID: 1102272349}
-    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
-        type: 3}
-      propertyPath: bulletSpeed
-      value: 3000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01f95f54eb72da54baa98e1338460409, type: 3}
 --- !u!1001 &5117043469889475471
@@ -1639,6 +1634,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 903876405}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: healthValue
+      value: 
+      objectReference: {fileID: 1430423387}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: roundCount
+      value: 
+      objectReference: {fileID: 1496787841}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: Name
+      value: 
+      objectReference: {fileID: 1084919155}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1352638186}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: playerTwoScript
+      value: 
+      objectReference: {fileID: 370491653}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4216304933872963747, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
@@ -1744,41 +1774,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 903876405}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: healthValue
-      value: 
-      objectReference: {fileID: 1430423387}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: roundCount
-      value: 
-      objectReference: {fileID: 1496787841}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: Name
-      value: 
-      objectReference: {fileID: 1084919155}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: respawnPoint
-      value: 
-      objectReference: {fileID: 1352638186}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: playerTwoScript
-      value: 
-      objectReference: {fileID: 370491653}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: maxHealth
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dba890c5c90add64388b726b712b944c, type: 3}
