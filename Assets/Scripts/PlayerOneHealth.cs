@@ -74,6 +74,19 @@ public class PlayerOneHealth : MonoBehaviour
             healthBar.value += 10f;
             currentHealth = healthBar.value;
         }
+
+        //when the player goes into the lava/water, both charcters will respawn with the round counter updating.
+        if (other.gameObject.tag == "Respawn")
+        {
+            WhenNoHealthOne();
+
+            if (currentRoundCount < maxRoundCount)
+            {
+                currentRoundCount += 1;
+            }
+
+            playerTwoScript.WhenNoHealthTwo();
+        }
     }
 
     //method for when the player dies

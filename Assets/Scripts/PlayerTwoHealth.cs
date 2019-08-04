@@ -48,15 +48,28 @@ public class PlayerTwoHealth : MonoBehaviour
         }
     }
 
-    //for damage from projectiles
     private void OnTriggerEnter(Collider other)
     {
+        //for damage from projectiles
         if (other.gameObject.tag == "Projectile")
         {
             healthBar.value += 5f;
             currentHealth = healthBar.value;
 
             Object.Destroy(other.gameObject);
+        }
+
+        //When the player enters the lava/water both players positions and health will be reset, with the round being updated.
+        if (other.gameObject.tag == "Respawn")
+        {
+            WhenNoHealthTwo();
+
+            if (currentRoundCount <= maxRoundCount)
+            {
+                currentRoundCount += 1;
+            }
+
+            playerOneScript.WhenNoHealthOne();
         }
     }
 
