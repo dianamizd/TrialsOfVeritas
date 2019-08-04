@@ -9,7 +9,12 @@ public class Player1Input : MonoBehaviour
 
     private float v;
 
-    public int speed = 5;
+    //player movement speed
+    public int movementSpeed = 10;
+
+    private Vector3 lookDirection = Vector3.zero;
+
+    private float lookSpeed = 1000f;
 
     Vector3 movement;
 
@@ -18,7 +23,16 @@ public class Player1Input : MonoBehaviour
     //healthbar
     public Slider healthBar;
 
+    //display health value in UI text
     public Text healthValue;
+
+    //display round count in UI text
+    public Text roundCount;
+
+    //display name of chosen class
+    public Text Name;
+
+    //private string newName;
 
     //setting health variables - but will need to change for each different character
     public float maxHealth = 100;
@@ -27,7 +41,7 @@ public class Player1Input : MonoBehaviour
     //current rounds claimed
     public int currentRoundCount;
 
-    private int maxRoundCount = 3;
+    public int maxRoundCount = 2;
 
     //variable for the respawn point (empty game object)
     public Transform respawnPoint;
@@ -56,16 +70,36 @@ public class Player1Input : MonoBehaviour
     //maximum cooldown time for dodge
     public float maxDodgeCooldownTime = 2.0f;
 
+    private bool invincibleState = false;
+
+    private float currentInvincibleTime = 0.0f;
+
+    public float maxInvincibleTime = 1.0f;
+
     //defining projectile
     public GameObject bullet;
 
     //speed of projectile
     public float bulletSpeed = 100f;
 
+    public float bulletDamage = 10f;
+
+    private float currentBulletCooldownTime = 0.0f;
+
+    public float maxBulletCooldownTime = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         giveMaxHealth();
+
+        className();
+
+        //newName = GetComponent<Text>();
+
+        currentRoundCount = 0;
+
+        roundCount.text = currentRoundCount + "";
     }
 
     // Update is called once per frame
@@ -76,16 +110,27 @@ public class Player1Input : MonoBehaviour
         {
             WhenNoHealthOne();
 
-            if (currentRoundCount < maxRoundCount)
-            {
-                currentRoundCount += 1;
-            }
+            playerTwoScript.addRound();
 
             playerTwoScript.WhenNoHealthTwo();
         }
 
+        if(invincibleState == true)
+        {
+            if(Time.time > currentInvincibleTime)
+            {
+                print("player 2 invincible");
+
+                currentInvincibleTime = Time.time + maxInvincibleTime;
+
+                invincibleState = false;
+            }
+        }
+
         //movement input for player
         movement = new Vector3(h, 0, v);
+
+        
 
         if (Input.GetButtonDown("Horizontal_P1"))
         {
@@ -102,29 +147,44 @@ public class Player1Input : MonoBehaviour
         v = Input.GetAxis("Vertical_P1");
 
         //moves player
-        transform.Translate(movement * Time.deltaTime * speed, Space.World);
+        transform.Translate(movement * Time.deltaTime * movementSpeed, Space.World);
+
+        lookDirection = new Vector3(h, 0, v);
+
+        //Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+
+        //transform.localRotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSpeed);
 
         float angle = Mathf.Atan2(h, v) * Mathf.Rad2Deg;
 
         //makes player face direction of movement
         if ((movement.x != 0f) || (movement.z != 0f))
         {
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            transform.rotation = Quaternion.LookRotation(lookDirection);
         }
 
         Debug.Log(h);
 
         //attacking (firing) input for player
-        if(Input.GetButtonDown("Fire_P1"))
+        if(Time.time > currentBulletCooldownTime)
         {
-            print("player 1 fire");
+            print("player 1 shoot ready");
 
-            GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
-            Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce(transform.forward * bulletSpeed);
+            if (Input.GetButtonDown("Fire_P1"))
+            {
+                print("player 1 fire");
 
-            Object.Destroy(instBullet, 2.0f);
+                GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
+                Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
+                instBulletRigidbody.AddForce(transform.forward * bulletSpeed);
+
+                currentBulletCooldownTime = Time.time + maxBulletCooldownTime;
+
+                Object.Destroy(instBullet, 2.0f);
+            }
         }
+
+        
 
         //dodging input for player
         if(Time.time > currentDodgeCooldownTime)
@@ -135,13 +195,19 @@ public class Player1Input : MonoBehaviour
 
             if (Input.GetButtonDown("Dodge_P1"))
             {
-                print("player 1 dodge, now on cooldown");
+                if(!invincibleState)
+                {
+                   print("player 1 dodge, now on cooldown");
 
-                currentDodgeTime = 0.0f;
-               
-                //active cooldown for dodge
-                currentDodgeCooldownTime = Time.time + maxDodgeCooldownTime;
-            } 
+                   currentDodgeTime = 0.0f;
+
+                   //active cooldown for dodge
+                   currentDodgeCooldownTime -= Time.time;
+
+                   invincibleState = true;
+                }
+                    
+            }  
         }
 
         //during dodge period
@@ -162,16 +228,17 @@ public class Player1Input : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //for damage from projectiles
-        if (other.gameObject.tag == "Projectile")
+        if (!invincibleState)
         {
-            healthBar.value -= 5f;
-            //health gets update when damage is taken
-            currentHealth = healthBar.value;
+            //for damage from projectiles
+            if (other.gameObject.tag == "Projectile")
+            {
+                playerDamage();
 
-            Object.Destroy(other.gameObject);
+                Object.Destroy(other.gameObject);
+            }
         }
-
+       
         //player health increase upon picking up power-up
         if (other.CompareTag("Power-Up"))
         {
@@ -190,6 +257,15 @@ public class Player1Input : MonoBehaviour
 
     }
 
+    //method to specify current class
+    private void className()
+    {
+        // Name.GetComponent<Text>().text = Name;
+
+        Name.text = "Default"; 
+    }
+
+    //method that gives player max health upon start or round reset
     private void giveMaxHealth()
     {
         //when the game starts, players health=max value
@@ -199,6 +275,31 @@ public class Player1Input : MonoBehaviour
 
         healthBar.value = maxHealth;
 
-        //healthValue.text;
+        healthValue.text = currentHealth + "/" + maxHealth; 
+    }
+
+    //method that gives player round point upon win
+    public void addRound()
+    {
+        //if (currentRoundCount < maxRoundCount)
+       // {
+           // currentRoundCount += 1;
+       // }
+
+        if(currentRoundCount < maxRoundCount)
+        {
+            currentRoundCount += 1;
+
+            roundCount.text = currentRoundCount + "";
+        }
+    }
+
+    public void playerDamage()
+    {
+        healthBar.value -= playerTwoScript.bulletDamage;
+
+        //health gets update when damage is taken
+        currentHealth = healthBar.value;
+        healthValue.text = currentHealth + "/" + maxHealth;
     }
 }

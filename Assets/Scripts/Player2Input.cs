@@ -9,7 +9,8 @@ public class Player2Input : MonoBehaviour
 
     private float v;
 
-    public int speed = 5;
+    //player movement speed
+    public int movementSpeed = 10;
 
     private Vector3 movement;
 
@@ -18,7 +19,17 @@ public class Player2Input : MonoBehaviour
     //healthbar
     public Slider healthBar;
 
+    //display health value in UI
+    public Text healthValue;
+
+    //display round count in UI
+    public Text roundCount;
+
+    //display name of chosen class
+    public Text Name;
+
     //setting health variable
+    public float maxHealth = 100;
     public float currentHealth;
 
     //current rounds claimed
@@ -52,37 +63,61 @@ public class Player2Input : MonoBehaviour
     //maximum cooldown time for dodge
     public float maxDodgeCooldownTime = 2.0f;
 
+    private bool invincibleState = false;
+
+    private float currentInvincibleTime = 0.0f;
+
+    public float maxInvincibleTime = 1.0f;
+
     //defining projectile
     public GameObject bullet;
 
     //speed of projectile
     public float bulletSpeed = 100f;
 
+    public float bulletDamage = 10f;
+
+    private float currentBulletCooldownTime = 0.0f;
+
+    public float maxBulletCooldownTime = 1.0f;
+
     public GameObject playercharacter;
 
     // Start is called before the first frame update
     void Start()
     {
-        //when the game starts, players health=0 (as it works in reverse)
-        healthBar.value = 0;
-        //health gets update when damage is taken
-        currentHealth = healthBar.value;
+        giveMaxHealth();
+
+        className();
+
+        currentRoundCount = 0;
+
+        roundCount.text = currentRoundCount + "";
     }
 
     // Update is called once per frame
     void Update()
     {
         //when the character's health = 0 (which is 100), the character will reset both their position and health
-        if (currentHealth == 100f)
+        if (currentHealth == 0f)
         {
             WhenNoHealthTwo();
 
-            if (currentRoundCount <= maxRoundCount)
-            {
-                currentRoundCount += 1;
-            }
+            playerOneScript.addRound();
 
             playerOneScript.WhenNoHealthOne();
+        }
+
+        if (invincibleState)
+        {
+            if (Time.time > currentInvincibleTime)
+            {
+                print("player 1 invincible");
+
+                currentInvincibleTime = Time.time + maxInvincibleTime;
+
+                invincibleState = false;
+            }
         }
 
         //movement for player
@@ -103,7 +138,7 @@ public class Player2Input : MonoBehaviour
         }
 
         //moves player
-        transform.Translate(movement * Time.deltaTime * speed, 0);
+        transform.Translate(movement * Time.deltaTime * movementSpeed, 0);
 
         //makes player face direction of movement
         if((movement.x != 0) || (movement.y != 0)) 
@@ -113,17 +148,24 @@ public class Player2Input : MonoBehaviour
         
 
         Debug.Log(h);
-        
+
         //attacking (firing) input for player
-        if (Input.GetButtonDown("Fire_P2"))
+        if (Time.time > currentBulletCooldownTime)
         {
-            print("player 2 fire");
+            print("player 2 shoot ready");
 
-            GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
-            Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce(transform.forward * bulletSpeed);
+            if (Input.GetButtonDown("Fire_P2"))
+            {
+                print("player 2 fire");
 
-            Object.Destroy(instBullet, 2.0f);
+                GameObject instBullet = Instantiate(bullet, bulletSpawn.transform.position, transform.rotation) as GameObject;
+                Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
+                instBulletRigidbody.AddForce(transform.forward * bulletSpeed);
+
+                currentBulletCooldownTime = Time.time + maxBulletCooldownTime;
+
+                Object.Destroy(instBullet, 2.0f);
+            }
         }
 
         //dodging input for player
@@ -133,17 +175,20 @@ public class Player2Input : MonoBehaviour
 
             //playercharacter.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-            if (Input.GetButtonDown("Dodge_P2"))
+            if(!invincibleState)
             {
-                print("player 2 dodge, now on cooldown");
+                if (Input.GetButtonDown("Dodge_P2"))
+                {
+                    print("player 2 dodge, now on cooldown");
 
-                currentDodgeTime = 0.0f;
+                    currentDodgeTime = 0.0f;
 
-                //active cooldown for dodge
-                currentDodgeCooldownTime = Time.time + maxDodgeCooldownTime;
+                    //active cooldown for dodge
+                    currentDodgeCooldownTime = Time.time + maxDodgeCooldownTime;
+
+                    invincibleState = true;
+                }
             }
-
-           
         }
 
         //during dodge period
@@ -169,13 +214,16 @@ public class Player2Input : MonoBehaviour
     //for damage from projectiles
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Projectile")
+        if(!invincibleState)
         {
-            healthBar.value += 5f;
-            currentHealth = healthBar.value;
+            if (other.gameObject.tag == "Projectile")
+            {
+                playerDamage();
 
-            Object.Destroy(other.gameObject);
+                Object.Destroy(other.gameObject);
+            }
         }
+        
     }
 
     //method for when the player dies
@@ -183,14 +231,42 @@ public class Player2Input : MonoBehaviour
     {
         gameObject.transform.position = respawnPoint.transform.position;
 
-        healthBar.value = 0;
-        currentHealth = healthBar.value;
+        //resets health value
+        giveMaxHealth();
+    }
 
-
+    private void className()
+    {
+        Name.text = "Default";
     }
 
     private void giveMaxHealth()
     {
+        //when the game starts, players health=max value
+        currentHealth = maxHealth;
 
+        healthBar.maxValue = maxHealth;
+
+        healthBar.value = maxHealth;
+
+        healthValue.text = currentHealth + "/" + maxHealth;
+    }
+
+    public void addRound()
+    {
+        if(currentRoundCount < maxRoundCount)
+        {
+            currentRoundCount += 1;
+
+            roundCount.text = currentRoundCount + "";
+        }
+    }
+
+    public void playerDamage()
+    {
+        healthBar.value -= playerOneScript.bulletDamage;
+        currentHealth = healthBar.value;
+
+        healthValue.text = currentHealth + "/" + maxHealth;
     }
 }
