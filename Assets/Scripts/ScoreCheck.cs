@@ -7,6 +7,8 @@ public class ScoreCheck : MonoBehaviour
 {
     public Text WinText;
 
+    public Button returnToMenu;
+
     [SerializeField] private Player1Input playerOneScript;
 
     [SerializeField] private Player2Input playerTwoScript;
@@ -21,6 +23,12 @@ public class ScoreCheck : MonoBehaviour
             playerOneScript.enabled = false;
 
             playerTwoScript.enabled = false;
+
+            if(!returnToMenu)
+            {
+                returnToMenu.enabled = true;
+            }
+           
         }
 
         if (playerTwoScript.currentRoundCount == playerTwoScript.maxRoundCount)
@@ -30,6 +38,12 @@ public class ScoreCheck : MonoBehaviour
             playerOneScript.enabled = false;
 
             playerTwoScript.enabled = false;
+
+            if(!returnToMenu)
+            {
+                returnToMenu.enabled = true;
+            }
+           
         }
     }
 }

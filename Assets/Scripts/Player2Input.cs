@@ -28,7 +28,11 @@ public class Player2Input : MonoBehaviour
     public Text roundCount;
 
     //display name of chosen class
-    public Text Name;
+    public string Name;
+
+    public string classType;
+
+    public Text characterName;
 
     //setting health variable
     public float maxHealth = 100;
@@ -243,7 +247,7 @@ public class Player2Input : MonoBehaviour
 
     private void className()
     {
-        Name.text = "Default";
+        characterName.text = "" + Name;
     }
 
     private void giveMaxHealth()

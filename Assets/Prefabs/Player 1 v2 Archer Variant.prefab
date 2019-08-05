@@ -22,6 +22,16 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: Name
+      value: Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: classType
+      value: Archer
+      objectReference: {fileID: 0}
     - target: {fileID: 4216304933872963747, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
       propertyPath: m_LocalPosition.x

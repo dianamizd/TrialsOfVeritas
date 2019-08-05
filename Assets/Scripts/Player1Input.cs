@@ -31,7 +31,11 @@ public class Player1Input : MonoBehaviour
     public Text roundCount;
 
     //display name of chosen class
-    public Text Name;
+    public string Name;
+
+    public string classType;
+
+    public Text characterName;
 
     //private string newName;
 
@@ -262,9 +266,7 @@ public class Player1Input : MonoBehaviour
     //method to specify current class
     private void className()
     {
-        // Name.GetComponent<Text>().text = Name;
-
-        Name.text = "Default"; 
+        characterName.text = "" + Name; 
     }
 
     //method that gives player max health upon start or round reset

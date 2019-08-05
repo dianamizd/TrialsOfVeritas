@@ -239,7 +239,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   healthValue: {fileID: 0}
   roundCount: {fileID: 0}
-  Name: {fileID: 0}
+  Name: Default
+  classType: Default
+  characterName: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
   currentRoundCount: 0
@@ -255,6 +257,8 @@ MonoBehaviour:
   bulletSpeed: 2500
   bulletDamage: 10
   maxBulletCooldownTime: 1
+  playerCharacter: {fileID: 0}
+  rigidbod: {fileID: 0}
 --- !u!54 &5117043470968407251
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -203,7 +203,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   healthValue: {fileID: 0}
   roundCount: {fileID: 0}
-  Name: {fileID: 0}
+  Name: Default
+  classType: Default
+  characterName: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
   currentRoundCount: 0

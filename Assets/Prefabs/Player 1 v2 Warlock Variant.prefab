@@ -10,7 +10,27 @@ PrefabInstance:
     - target: {fileID: 5117043470968407256, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
       propertyPath: m_Name
-      value: Player 1 Base v2 (1)
+      value: Player 1 v2 Warlock Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: maxHealth
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: maxBulletCooldownTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: Name
+      value: Warlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: classType
+      value: Warlock
       objectReference: {fileID: 0}
     - target: {fileID: 4216304933872963747, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
@@ -116,16 +136,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: maxHealth
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: maxBulletCooldownTime
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dba890c5c90add64388b726b712b944c, type: 3}
