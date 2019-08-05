@@ -14,6 +14,8 @@ public class Player2Input : MonoBehaviour
 
     private Vector3 movement;
 
+    private Vector3 lookDirection;
+
     public GameObject bulletSpawn;
 
     //healthbar
@@ -120,12 +122,10 @@ public class Player2Input : MonoBehaviour
             }
         }
 
-        //movement for player
+        //movement input for player
         movement = new Vector3(h, 0, v);
 
-        h = Input.GetAxis("Horizontal_P2");
-
-        v = Input.GetAxis("Vertical_P2");
+        lookDirection = new Vector3(h, 0, v);
 
         if (Input.GetButtonDown("Horizontal_P2"))
         {
@@ -137,15 +137,19 @@ public class Player2Input : MonoBehaviour
             print("player 2 up/down movement");
         }
 
+        h = Input.GetAxis("Horizontal_P2");
+
+        v = Input.GetAxis("Vertical_P2");
+
         //moves player
-        transform.Translate(movement * Time.deltaTime * movementSpeed, 0);
+        transform.Translate(movement * Time.deltaTime * movementSpeed, Space.World);
 
         //makes player face direction of movement
-        if((movement.x != 0) || (movement.y != 0)) 
+        if ((movement.x != 0f) || (movement.z != 0f))
         {
-            transform.rotation = Quaternion.LookRotation(movement);
+            transform.rotation = Quaternion.LookRotation(lookDirection);
         }
-        
+
 
         Debug.Log(h);
 

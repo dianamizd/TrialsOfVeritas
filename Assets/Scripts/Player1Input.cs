@@ -12,12 +12,13 @@ public class Player1Input : MonoBehaviour
     //player movement speed
     public int movementSpeed = 10;
 
-    private Vector3 lookDirection = Vector3.zero;
+    private Vector3 lookDirection;
 
     private float lookSpeed = 1000f;
 
     Vector3 movement;
 
+    //emit bullets
     public GameObject bulletSpawn;
 
     //healthbar
@@ -88,6 +89,10 @@ public class Player1Input : MonoBehaviour
 
     public float maxBulletCooldownTime = 1.0f;
 
+    public GameObject playerCharacter;
+
+    public Rigidbody rigidbod;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -123,6 +128,8 @@ public class Player1Input : MonoBehaviour
 
                 currentInvincibleTime = Time.time + maxInvincibleTime;
 
+                //playerCharacter.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+
                 invincibleState = false;
             }
         }
@@ -130,7 +137,7 @@ public class Player1Input : MonoBehaviour
         //movement input for player
         movement = new Vector3(h, 0, v);
 
-        
+        lookDirection = new Vector3(h, 0, v);
 
         if (Input.GetButtonDown("Horizontal_P1"))
         {
@@ -149,19 +156,12 @@ public class Player1Input : MonoBehaviour
         //moves player
         transform.Translate(movement * Time.deltaTime * movementSpeed, Space.World);
 
-        lookDirection = new Vector3(h, 0, v);
-
-        //Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-
-        //transform.localRotation = Quaternion.Slerp(transform.rotation, targetRotation, lookSpeed);
-
-        float angle = Mathf.Atan2(h, v) * Mathf.Rad2Deg;
-
         //makes player face direction of movement
         if ((movement.x != 0f) || (movement.z != 0f))
         {
             transform.rotation = Quaternion.LookRotation(lookDirection);
         }
+
 
         Debug.Log(h);
 
@@ -191,7 +191,7 @@ public class Player1Input : MonoBehaviour
         {
             print("player 1 dodge ready");
 
-            //playercharacter.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            
 
             if (Input.GetButtonDown("Dodge_P1"))
             {
@@ -283,11 +283,6 @@ public class Player1Input : MonoBehaviour
     //method that gives player round point upon win
     public void addRound()
     {
-        //if (currentRoundCount < maxRoundCount)
-       // {
-           // currentRoundCount += 1;
-       // }
-
         if(currentRoundCount < maxRoundCount)
         {
             currentRoundCount += 1;

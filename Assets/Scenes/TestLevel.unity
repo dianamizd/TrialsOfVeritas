@@ -665,7 +665,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5117043469889475471}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1667217659}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d89b7640e055da345aec55fe870514a2, type: 3}
@@ -1142,6 +1142,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1667217659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5117043470968407256, guid: dba890c5c90add64388b726b712b944c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5117043469889475471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1667217661 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5117043470968407251, guid: dba890c5c90add64388b726b712b944c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5117043469889475471}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1700654781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1680,6 +1692,21 @@ PrefabInstance:
       propertyPath: maxInvincibleTime
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: playercharacter
+      value: 
+      objectReference: {fileID: 1667217659}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: playerCharacter
+      value: 
+      objectReference: {fileID: 1667217659}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: rigidbod
+      value: 
+      objectReference: {fileID: 1667217661}
     - target: {fileID: 4216304933872963747, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
       propertyPath: m_LocalPosition.x
