@@ -37,9 +37,7 @@ public class Player1Input : MonoBehaviour
 
     public Text characterName;
 
-    //private string newName;
-
-    //setting health variables - but will need to change for each different character
+    //setting health variables
     public float maxHealth = 100;
     public float currentHealth;
 
