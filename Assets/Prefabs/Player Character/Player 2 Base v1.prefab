@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2074dac60aa5094491554e5fb6f8421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 7
   bulletSpawn: {fileID: 2233253429264620189}
   healthBar: {fileID: 0}
   healthValue: {fileID: 0}

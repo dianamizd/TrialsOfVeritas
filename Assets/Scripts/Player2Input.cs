@@ -231,7 +231,18 @@ public class Player2Input : MonoBehaviour
                 Object.Destroy(other.gameObject);
             }
         }
-        
+
+        //When the player enters the lava/water both players positions and health will be reset, with the round being updated.
+        if (other.gameObject.tag == "Respawn")
+        {
+            WhenNoHealthTwo();
+
+            playerOneScript.addRound();
+
+            playerOneScript.WhenNoHealthOne();
+
+        }
+
     }
 
     //method for when the player dies
