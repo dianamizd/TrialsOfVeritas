@@ -9,14 +9,29 @@ public class ScoreCheck : MonoBehaviour
 
     public Button returnToMenu;
 
+    private bool returnToMenuActive = false;
+
+    public float countdownTimer;
+
+    public Text countdownTimerText;
+
     [SerializeField] private Player1Input playerOneScript;
 
     [SerializeField] private Player2Input playerTwoScript;
 
+    void Start()
+    {
+        playerOneScript.enabled = false;
+
+        playerTwoScript.enabled = false;
+    }
+    
     // Update is called once per frame
     void Update()
     {
-        if(playerOneScript.currentRoundCount == playerOneScript.maxRoundCount)
+        CountdownTimer();
+
+        if (playerOneScript.currentRoundCount == playerOneScript.maxRoundCount)
         {
             WinText.text = "PLAYER 1 WIN";
 
@@ -24,7 +39,7 @@ public class ScoreCheck : MonoBehaviour
 
             playerTwoScript.enabled = false;
 
-            if(!returnToMenu)
+            if(!returnToMenuActive)
             {
                 returnToMenu.enabled = true;
             }
@@ -39,11 +54,33 @@ public class ScoreCheck : MonoBehaviour
 
             playerTwoScript.enabled = false;
 
-            if(!returnToMenu)
+            if(!returnToMenuActive)
             {
                 returnToMenu.enabled = true;
             }
            
+        }
+    }
+
+    public void CountdownTimer()
+    {
+        if (countdownTimer >= 1)
+        {
+            playerOneScript.enabled = false;
+
+            playerTwoScript.enabled = false;
+
+            countdownTimer -= 1 * Time.deltaTime;
+
+            countdownTimerText.text = "" + (int)(countdownTimer % 60);
+        }
+        else
+        {
+            playerOneScript.enabled = true;
+
+            playerTwoScript.enabled = true;
+
+            countdownTimerText.text = "";
         }
     }
 }

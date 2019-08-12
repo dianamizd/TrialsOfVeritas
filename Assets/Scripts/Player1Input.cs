@@ -51,6 +51,7 @@ public class Player1Input : MonoBehaviour
 
     //initialise script, to be able to pull references to it
     [SerializeField] private Player2Input playerTwoScript;
+    [SerializeField] private ScoreCheck scoreCheck;
 
     //speed of dodge
     public float dodgeSpeed = 1.0f;
@@ -120,6 +121,10 @@ public class Player1Input : MonoBehaviour
             playerTwoScript.addRound();
 
             playerTwoScript.WhenNoHealthTwo();
+
+            scoreCheck.countdownTimer = 4;
+
+            scoreCheck.CountdownTimer();
         }
 
         if(invincibleState == true)

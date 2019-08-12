@@ -47,6 +47,7 @@ public class Player2Input : MonoBehaviour
     public Transform respawnPoint;
 
     [SerializeField] private Player1Input playerOneScript;
+    [SerializeField] private ScoreCheck scoreCheck;
 
     //speed of dodge
     public float dodgeSpeed = 1.0f;
@@ -104,7 +105,7 @@ public class Player2Input : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //when the character's health = 0 (which is 100), the character will reset both their position and health
+        //when the character's health = 0, the character will reset both their position and health
         if (currentHealth == 0f)
         {
             WhenNoHealthTwo();
@@ -112,6 +113,10 @@ public class Player2Input : MonoBehaviour
             playerOneScript.addRound();
 
             playerOneScript.WhenNoHealthOne();
+
+            scoreCheck.countdownTimer = 4;
+
+            scoreCheck.CountdownTimer();
         }
 
         if (invincibleState)
