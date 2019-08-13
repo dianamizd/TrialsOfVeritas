@@ -35,13 +35,13 @@ public class LevelChanger : MonoBehaviour
     public void IslandLevel()
     {
         //as long as the + no. is the accurate number of scenes after the level select, it should work
-        FadeTo(SceneManager.GetActiveScene().buildIndex + 1);
+        FadeTo(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     //listener to call to lava level
     public void LavaLevel()
     {
-        FadeTo(SceneManager.GetActiveScene().buildIndex + 2);
+        FadeTo(SceneManager.GetActiveScene().buildIndex + 3);
     }
 
     //on fadeout animation, we want new scene to load

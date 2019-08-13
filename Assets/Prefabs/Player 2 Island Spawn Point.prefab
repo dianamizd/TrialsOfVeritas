@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6173502108952490586
+--- !u!1 &2117322253389652655
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6173502108952490588}
-  - component: {fileID: 6173502108952490589}
+  - component: {fileID: 2117322253389652648}
+  - component: {fileID: 5631667928444673328}
   m_Layer: 0
-  m_Name: ScoreCheck
+  m_Name: Player 2 Island Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6173502108952490588
+--- !u!4 &2117322253389652648
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6173502108952490586}
+  m_GameObject: {fileID: 2117322253389652655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.246565, y: 6.1474752, z: -3.4171617}
+  m_LocalPosition: {x: 18.444, y: 6, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6173502108952490589
+--- !u!114 &5631667928444673328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6173502108952490586}
+  m_GameObject: {fileID: 2117322253389652655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c047d651bbc13d4db8402203ff98ed9, type: 3}
+  m_Script: {fileID: 11500000, guid: 196dc76d7475cee4d987419b6e9f36de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinText: {fileID: 0}
-  returnToMenu: {fileID: 0}
-  countdownTimer: 4
-  countdownTimerText: {fileID: 0}
-  playerOneScript: {fileID: 0}
-  playerTwoScript: {fileID: 0}
+  player2Archer: {fileID: 820191123165313129, guid: 61ac962cdcd357b4ba6a33953e851a59,
+    type: 3}
+  player2Gladiator: {fileID: 3627791953518286263, guid: fbe021cd9677d964893cf3a88e5ac400,
+    type: 3}
+  player2Warlock: {fileID: 5102293702684326719, guid: a24d8124c04344d4492bd0824d4584ae,
+    type: 3}
+  player2Spawn: {fileID: 2117322253389652648}
