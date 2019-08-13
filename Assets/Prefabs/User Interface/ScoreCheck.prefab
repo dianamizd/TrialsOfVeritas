@@ -45,7 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WinText: {fileID: 0}
   returnToMenu: {fileID: 0}
-  countdownTimer: 4
-  countdownTimerText: {fileID: 0}
   playerOneScript: {fileID: 0}
   playerTwoScript: {fileID: 0}

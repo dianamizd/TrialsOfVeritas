@@ -15,16 +15,12 @@ public class ScoreCheck : MonoBehaviour
 
     public Text countdownTimerText;
 
-    private bool pauseActive;
-
     [SerializeField] private Player1Input playerOneScript;
 
     [SerializeField] private Player2Input playerTwoScript;
 
     void Start()
     {
-        pauseActive = false;
-
         playerOneScript.enabled = false;
 
         playerTwoScript.enabled = false;
@@ -35,28 +31,6 @@ public class ScoreCheck : MonoBehaviour
     {
         CountdownTimer();
 
-        if(!pauseActive)
-        {
-            Time.timeScale = 1f;
-
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                pauseActive = true;
-            }
-        }
-       
-        if(pauseActive)
-        {
-            Time.timeScale = 0f;
-
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                pauseActive = false;
-            }
-        }
-       
-
-        //when player 1 wins
         if (playerOneScript.currentRoundCount == playerOneScript.maxRoundCount)
         {
             WinText.text = "PLAYER 1 WIN";
@@ -72,7 +46,6 @@ public class ScoreCheck : MonoBehaviour
            
         }
 
-        //when player 2 wins
         if (playerTwoScript.currentRoundCount == playerTwoScript.maxRoundCount)
         {
             WinText.text = "PLAYER 2 WIN";
@@ -89,10 +62,9 @@ public class ScoreCheck : MonoBehaviour
         }
     }
 
-    //method for countdown timer
     public void CountdownTimer()
     {
-        if (countdownTimer > 1)
+        if (countdownTimer >= 1)
         {
             playerOneScript.enabled = false;
 
@@ -104,11 +76,11 @@ public class ScoreCheck : MonoBehaviour
         }
         else
         {
-            countdownTimerText.text = "";
-
             playerOneScript.enabled = true;
 
             playerTwoScript.enabled = true;
+
+            countdownTimerText.text = "";
         }
     }
 }
