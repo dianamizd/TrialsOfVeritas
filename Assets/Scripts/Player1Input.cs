@@ -96,10 +96,6 @@ public class Player1Input : MonoBehaviour
 
     public Rigidbody rigidbod;
 
-    //audio for projectiles and death screams
-    [SerializeField] private AudioClip projectileSound;
-    [SerializeField] private AudioClip deathScream;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -129,8 +125,6 @@ public class Player1Input : MonoBehaviour
             scoreCheck.countdownTimer = 4;
 
             scoreCheck.CountdownTimer();
-
-            GetComponent<AudioSource>().PlayOneShot(deathScream);
         }
 
         if(invincibleState == true)
@@ -194,8 +188,6 @@ public class Player1Input : MonoBehaviour
                 currentBulletCooldownTime = Time.time + maxBulletCooldownTime;
 
                 Object.Destroy(instBullet, 2.0f);
-
-                GetComponent<AudioSource>().PlayOneShot(projectileSound);
             }
         }
 
@@ -269,8 +261,6 @@ public class Player1Input : MonoBehaviour
             playerTwoScript.addRound();
 
             playerTwoScript.WhenNoHealthTwo();
-
-            GetComponent<AudioSource>().PlayOneShot(deathScream);
         }
     }
 

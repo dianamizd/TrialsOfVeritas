@@ -82,29 +82,18 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   healthValue: {fileID: 0}
   roundCount: {fileID: 0}
-  Name: 
-  classType: 
-  characterName: {fileID: 0}
+  Name: {fileID: 0}
   maxHealth: 90
   currentHealth: 0
   currentRoundCount: 0
-  maxRoundCount: 2
   respawnPoint: {fileID: 0}
   playerTwoScript: {fileID: 0}
-  scoreCheck: {fileID: 0}
   dodgeSpeed: 5
   dodgeDistance: 5
   currentDodgeTime: 1
   maxDodgeCooldownTime: 1
-  maxInvincibleTime: 1
   bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
   bulletSpeed: 1000
-  bulletDamage: 10
-  maxBulletCooldownTime: 1
-  playerCharacter: {fileID: 0}
-  rigidbod: {fileID: 0}
-  projectileSound: {fileID: 8300000, guid: 7d3b9d60bd80e874584601f187e69a11, type: 3}
-  deathScream: {fileID: 8300000, guid: f2307110461cf854eaf3c39680c9867b, type: 3}
 --- !u!54 &3433019946094401589
 Rigidbody:
   m_ObjectHideFlags: 0
