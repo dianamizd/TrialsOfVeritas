@@ -9,17 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 91ebe1209a29b334684e80e3b032dedd
   - enabled: 1
-    path: Assets/Scenes/CharacterSelect.unity
-    guid: db50c584a4fb6d14c9470d2872aeb13e
-  - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
     guid: 3a743dcc7052eff4ebce7f85d3bd3a7a
   - enabled: 1
     path: Assets/Scenes/TestLevel.unity
     guid: 952e8a6b7331e1545a367e0bec3b7499
-  - enabled: 1
-    path: Assets/Scenes/IslandMap.unity
-    guid: 3c6541758507eb64780aa9e2953853db
   - enabled: 1
     path: Assets/Scenes/LavaLevel.unity
     guid: 8cceb5e86923add45bc880aca77a6014
