@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4216304933872963747
 RectTransform:
   m_ObjectHideFlags: 0
@@ -248,6 +248,8 @@ MonoBehaviour:
   maxRoundCount: 2
   respawnPoint: {fileID: 0}
   playerTwoScript: {fileID: 0}
+  scoreCheck: {fileID: 6173502108952490589, guid: 106c2374a052a4a43aa3ded135e6883a,
+    type: 3}
   dodgeSpeed: 5
   dodgeDistance: 5
   currentDodgeTime: 1
@@ -257,7 +259,7 @@ MonoBehaviour:
   bulletSpeed: 2500
   bulletDamage: 10
   maxBulletCooldownTime: 1
-  playerCharacter: {fileID: 0}
+  playerCharacter: {fileID: 5117043470968407256}
   rigidbod: {fileID: 0}
 --- !u!54 &5117043470968407251
 Rigidbody:

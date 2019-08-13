@@ -120,8 +120,6 @@ public class Player2Input : MonoBehaviour
 
             scoreCheck.countdownTimer = 4;
 
-            scoreCheck.CountdownTimer();
-
             GetComponent<AudioSource>().PlayOneShot(deathScream);
         }
 

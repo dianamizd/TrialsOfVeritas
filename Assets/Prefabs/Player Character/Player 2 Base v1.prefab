@@ -212,6 +212,8 @@ MonoBehaviour:
   maxRoundCount: 2
   respawnPoint: {fileID: 0}
   playerOneScript: {fileID: 0}
+  scoreCheck: {fileID: 6173502108952490589, guid: 106c2374a052a4a43aa3ded135e6883a,
+    type: 3}
   dodgeSpeed: 5
   dodgeDistance: 5
   currentDodgeTime: 1
@@ -222,6 +224,8 @@ MonoBehaviour:
   bulletDamage: 10
   maxBulletCooldownTime: 1
   playercharacter: {fileID: 2233253429177868613}
+  projectileSound: {fileID: 0}
+  deathScream: {fileID: 0}
 --- !u!54 &2233253429177868478
 Rigidbody:
   m_ObjectHideFlags: 0

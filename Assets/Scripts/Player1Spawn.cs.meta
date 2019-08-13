@@ -3,7 +3,14 @@ guid: 6148718bad733b149b7c74b7f8367922
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - P1Archer: {fileID: 3893228944702479615, guid: 013045b4723acf442bb36b4f82167602,
+      type: 3}
+  - P1Gladiator: {fileID: 1785299705056275417, guid: a4bf7616ab51afa40845dc50909174de,
+      type: 3}
+  - P1Warlock: {fileID: 2326855324207915055, guid: 5e4831e66a6e07b4f86049ee62d9a80b,
+      type: 3}
+  - player1Spawn: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -7,13 +7,17 @@ public class ScoreCheck : MonoBehaviour
 {
     public Text WinText;
 
-    public Button returnToMenu;
+    public Text pausedText;
 
-    private bool returnToMenuActive = false;
+    public GameObject returnToMenuButton;
+
+    public static bool returnToMenuActive = false;
 
     public float countdownTimer;
 
     public Text countdownTimerText;
+
+    public static bool pauseActive = false;
 
     [SerializeField] private Player1Input playerOneScript;
 
@@ -24,12 +28,26 @@ public class ScoreCheck : MonoBehaviour
         playerOneScript.enabled = false;
 
         playerTwoScript.enabled = false;
+
+        returnToMenuButton.SetActive(false);
     }
     
     // Update is called once per frame
     void Update()
     {
         CountdownTimer();
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(pauseActive)
+            {
+                Resume();
+            }
+            else
+            {
+                Paused();
+            }
+        }
 
         if (playerOneScript.currentRoundCount == playerOneScript.maxRoundCount)
         {
@@ -39,10 +57,7 @@ public class ScoreCheck : MonoBehaviour
 
             playerTwoScript.enabled = false;
 
-            if(!returnToMenuActive)
-            {
-                returnToMenu.enabled = true;
-            }
+            returnToMenuButton.SetActive(true);
            
         }
 
@@ -54,11 +69,8 @@ public class ScoreCheck : MonoBehaviour
 
             playerTwoScript.enabled = false;
 
-            if(!returnToMenuActive)
-            {
-                returnToMenu.enabled = true;
-            }
-           
+            returnToMenuButton.SetActive(true);
+
         }
     }
 
@@ -83,4 +95,23 @@ public class ScoreCheck : MonoBehaviour
             countdownTimerText.text = "";
         }
     }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        returnToMenuButton.SetActive(false);
+        pauseActive = false;
+        pausedText.text = "";
+    }
+
+    public void Paused()
+    {
+        Time.timeScale = 0f;
+        returnToMenuButton.SetActive(true);
+        pauseActive = true;
+        pausedText.text = "Paused Press Esc To Resume";
+        Debug.Log("game is paused");
+    }
+
+    
 }

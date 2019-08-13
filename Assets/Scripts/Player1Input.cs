@@ -103,8 +103,6 @@ public class Player1Input : MonoBehaviour
 
         className();
 
-        //newName = GetComponent<Text>();
-
         currentRoundCount = 0;
 
         roundCount.text = currentRoundCount + "";
@@ -123,8 +121,6 @@ public class Player1Input : MonoBehaviour
             playerTwoScript.WhenNoHealthTwo();
 
             scoreCheck.countdownTimer = 4;
-
-            scoreCheck.CountdownTimer();
         }
 
         if(invincibleState == true)
