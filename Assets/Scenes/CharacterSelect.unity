@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 103202622}
   - component: {fileID: 103202621}
   - component: {fileID: 103202620}
-  - component: {fileID: 103202623}
   m_Layer: 5
   m_Name: GladiatorButton 1
   m_TagString: Untagged
@@ -203,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 103202623}
+      - m_Target: {fileID: 1090806344}
         m_MethodName: GladiatorP1
         m_Mode: 1
         m_Arguments:
@@ -253,20 +252,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103202618}
   m_CullTransparentMesh: 0
---- !u!114 &103202623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103202618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30cba62a8b4c7b41a529d855ef636e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCharacter1: 1
-  playerCharacter2: 1
 --- !u!1 &117143164
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +264,6 @@ GameObject:
   - component: {fileID: 117143168}
   - component: {fileID: 117143167}
   - component: {fileID: 117143166}
-  - component: {fileID: 117143169}
   m_Layer: 5
   m_Name: ArcherButton 2
   m_TagString: Untagged
@@ -350,7 +334,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 117143169}
+      - m_Target: {fileID: 1090806344}
         m_MethodName: ArcherP2
         m_Mode: 1
         m_Arguments:
@@ -400,20 +384,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117143164}
   m_CullTransparentMesh: 0
---- !u!114 &117143169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117143164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30cba62a8b4c7b41a529d855ef636e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCharacter1: 1
-  playerCharacter2: 1
 --- !u!1 &154718240
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +802,6 @@ GameObject:
   - component: {fileID: 451684958}
   - component: {fileID: 451684957}
   - component: {fileID: 451684956}
-  - component: {fileID: 451684959}
   m_Layer: 5
   m_Name: WarlockButton 1
   m_TagString: Untagged
@@ -903,7 +872,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 451684959}
+      - m_Target: {fileID: 1090806344}
         m_MethodName: WarlockP1
         m_Mode: 1
         m_Arguments:
@@ -953,20 +922,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451684954}
   m_CullTransparentMesh: 0
---- !u!114 &451684959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451684954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30cba62a8b4c7b41a529d855ef636e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCharacter1: 1
-  playerCharacter2: 1
 --- !u!1 &574425119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,7 +1037,6 @@ GameObject:
   - component: {fileID: 649234776}
   - component: {fileID: 649234775}
   - component: {fileID: 649234774}
-  - component: {fileID: 649234777}
   m_Layer: 5
   m_Name: WarlockButton 2
   m_TagString: Untagged
@@ -1153,7 +1107,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 649234777}
+      - m_Target: {fileID: 1090806344}
         m_MethodName: WarlockP2
         m_Mode: 1
         m_Arguments:
@@ -1203,20 +1157,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649234772}
   m_CullTransparentMesh: 0
---- !u!114 &649234777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649234772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30cba62a8b4c7b41a529d855ef636e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCharacter1: 1
-  playerCharacter2: 1
 --- !u!1 &659945514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,7 +1169,6 @@ GameObject:
   - component: {fileID: 659945517}
   - component: {fileID: 659945515}
   - component: {fileID: 659945516}
-  - component: {fileID: 659945519}
   m_Layer: 5
   m_Name: ArcherButton 1
   m_TagString: Untagged
@@ -1309,7 +1248,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 659945519}
+      - m_Target: {fileID: 1090806344}
         m_MethodName: ArcherP1
         m_Mode: 1
         m_Arguments:
@@ -1350,20 +1289,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 317.1, y: 160.9}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &659945519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659945514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30cba62a8b4c7b41a529d855ef636e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCharacter1: 1
-  playerCharacter2: 1
 --- !u!1 &710754280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1621,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063426711}
   m_CullTransparentMesh: 0
+--- !u!1 &1090806342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1090806345}
+  - component: {fileID: 1090806344}
+  - component: {fileID: 1090806343}
+  m_Layer: 0
+  m_Name: Character Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1090806343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090806342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9398a814c5259134cb3c341f670eed99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1090806344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090806342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a30cba62a8b4c7b41a529d855ef636e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCharacter1: 
+  playerCharacter2: 
+--- !u!4 &1090806345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090806342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1253.5, y: 705, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1147182992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,7 +1770,6 @@ GameObject:
   - component: {fileID: 1608402601}
   - component: {fileID: 1608402600}
   - component: {fileID: 1608402599}
-  - component: {fileID: 1608402602}
   m_Layer: 5
   m_Name: GladiatorButton 2
   m_TagString: Untagged
@@ -1858,7 +1840,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1608402602}
+      - m_Target: {fileID: 1090806344}
         m_MethodName: GladiatorP2
         m_Mode: 1
         m_Arguments:
@@ -1908,20 +1890,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608402597}
   m_CullTransparentMesh: 0
---- !u!114 &1608402602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608402597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30cba62a8b4c7b41a529d855ef636e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCharacter1: 1
-  playerCharacter2: 1
 --- !u!1 &1647568694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,7 +2319,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
