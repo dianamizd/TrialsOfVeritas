@@ -236,18 +236,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   bulletSpawn: {fileID: 5117043469267351132}
-  healthBar: {fileID: 0}
-  healthValue: {fileID: 0}
-  roundCount: {fileID: 0}
+  healthBar: {fileID: 4091027002089948499, guid: b79dae7fd32163b4089e026ed219aa87,
+    type: 3}
+  healthValue: {fileID: 622320776019461027, guid: a40d3a4cb1c1e414c8501562472dcb33,
+    type: 3}
+  roundCount: {fileID: 7055990592498003417, guid: 70a394e210918bf4dae5559f5893b865,
+    type: 3}
   Name: Default
   classType: Default
-  characterName: {fileID: 0}
+  characterName: {fileID: 554065194534719161, guid: 3a879bd2848386844969a13d7f544a08,
+    type: 3}
   maxHealth: 100
   currentHealth: 0
   currentRoundCount: 0
   maxRoundCount: 2
   respawnPoint: {fileID: 0}
-  playerTwoScript: {fileID: 0}
+  playerTwoScript: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
+    type: 3}
+  scoreCheck: {fileID: 6173502108952490589, guid: 106c2374a052a4a43aa3ded135e6883a,
+    type: 3}
   dodgeSpeed: 5
   dodgeDistance: 5
   currentDodgeTime: 1
