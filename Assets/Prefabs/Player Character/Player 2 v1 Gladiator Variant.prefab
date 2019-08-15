@@ -92,5 +92,15 @@ PrefabInstance:
       propertyPath: classType
       value: Gladiator
       objectReference: {fileID: 0}
+    - target: {fileID: 5102293702684326597, guid: a24d8124c04344d4492bd0824d4584ae,
+        type: 3}
+      propertyPath: deathScream
+      value: 
+      objectReference: {fileID: 8300000, guid: e90f7a83f7ca2e641abd3b48fee88eb9, type: 3}
+    - target: {fileID: 5102293702684326597, guid: a24d8124c04344d4492bd0824d4584ae,
+        type: 3}
+      propertyPath: projectileSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c6ac05f98e3de3d4688be5232168308e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24d8124c04344d4492bd0824d4584ae, type: 3}

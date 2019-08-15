@@ -92,5 +92,15 @@ PrefabInstance:
       propertyPath: classType
       value: Warlock
       objectReference: {fileID: 0}
+    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
+        type: 3}
+      propertyPath: projectileSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e9658c1a852f6641aaeb62e181e952b, type: 3}
+    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
+        type: 3}
+      propertyPath: deathScream
+      value: 
+      objectReference: {fileID: 8300000, guid: 28a55f75e23a5fa43acbd1e49c6d2f16, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61ac962cdcd357b4ba6a33953e851a59, type: 3}

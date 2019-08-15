@@ -12,6 +12,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2 v1 Archer Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
+        type: 3}
+      propertyPath: bulletDamage
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
+        type: 3}
+      propertyPath: maxBulletCooldownTime
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
+        type: 3}
+      propertyPath: Name
+      value: Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
+        type: 3}
+      propertyPath: classType
+      value: Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
+        type: 3}
+      propertyPath: projectileSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d3b9d60bd80e874584601f187e69a11, type: 3}
+    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
+        type: 3}
+      propertyPath: deathScream
+      value: 
+      objectReference: {fileID: 8300000, guid: f2307110461cf854eaf3c39680c9867b, type: 3}
     - target: {fileID: 2233253429177868473, guid: 01f95f54eb72da54baa98e1338460409,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,31 +101,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
-        type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
-        type: 3}
-      propertyPath: bulletDamage
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
-        type: 3}
-      propertyPath: maxBulletCooldownTime
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
-        type: 3}
-      propertyPath: Name
-      value: Archer
-      objectReference: {fileID: 0}
-    - target: {fileID: 2233253429177868479, guid: 01f95f54eb72da54baa98e1338460409,
-        type: 3}
-      propertyPath: classType
-      value: Archer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01f95f54eb72da54baa98e1338460409, type: 3}

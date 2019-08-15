@@ -37,6 +37,16 @@ PrefabInstance:
       propertyPath: classType
       value: Gladiator
       objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: deathScream
+      value: 
+      objectReference: {fileID: 8300000, guid: e90f7a83f7ca2e641abd3b48fee88eb9, type: 3}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: projectileSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c6ac05f98e3de3d4688be5232168308e, type: 3}
     - target: {fileID: 4216304933872963747, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
       propertyPath: m_LocalPosition.x
