@@ -278,6 +278,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4350906183487837670, guid: 66f061d96b3fd2f4d8a4b7e711cae33a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8c1e1a5c286078842bd76c55db916ccd, type: 2}
+    - target: {fileID: 4350906183487837670, guid: 66f061d96b3fd2f4d8a4b7e711cae33a,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed by
+        Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'Spine1'\n\tTransform 'LeftHandMiddle2'\n\tTransform
+        'Neck'\n\tTransform 'LeftHandThumb1'\n\tTransform 'LeftHandRing2'\n\tTransform
+        'RightHandMiddle1'\n\tTransform 'LeftUpLeg'\n\tTransform 'LeftHandIndex2'\n\tTransform
+        'RightHandThumb2'\n\tand more ...\n\tFrom animation clip 'Stand To Roll'"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66f061d96b3fd2f4d8a4b7e711cae33a, type: 3}
 --- !u!1001 &509537947
@@ -346,6 +361,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268603913690651285, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8c50a4cd94f5bcf4794a0b264aa1dc90, type: 2}
+    - target: {fileID: 2268603913690651285, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed by
+        Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'Spine1'\n\tTransform 'LeftHandMiddle2'\n\tTransform
+        'Neck'\n\tTransform 'LeftHandThumb1'\n\tTransform 'LeftHandRing2'\n\tTransform
+        'RightHandMiddle1'\n\tTransform 'LeftUpLeg'\n\tTransform 'LeftHandIndex2'\n\tTransform
+        'RightHandThumb2'\n\tand more ...\n\tFrom animation clip 'Stand To Roll'"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cf412e676d216849a3e1a20f0def021, type: 3}
