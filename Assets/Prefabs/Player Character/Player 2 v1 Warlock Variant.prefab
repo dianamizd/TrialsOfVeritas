@@ -1,5 +1,84 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2124530874506972452
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5102293702684326595}
+    m_Modifications:
+    - target: {fileID: 2373641165940785134, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_Name
+      value: Warlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595422295176681075, guid: 6cf412e676d216849a3e1a20f0def021,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6cf412e676d216849a3e1a20f0def021, type: 3}
 --- !u!1001 &5597721920654295894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12,6 +91,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2 v1 Warlock Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
+        type: 3}
+      propertyPath: maxHealth
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
+        type: 3}
+      propertyPath: maxBulletCooldownTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
+        type: 3}
+      propertyPath: bulletDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
+        type: 3}
+      propertyPath: Name
+      value: Warlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
+        type: 3}
+      propertyPath: classType
+      value: Warlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
+        type: 3}
+      propertyPath: projectileSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e9658c1a852f6641aaeb62e181e952b, type: 3}
+    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
+        type: 3}
+      propertyPath: deathScream
+      value: 
+      objectReference: {fileID: 8300000, guid: 28a55f75e23a5fa43acbd1e49c6d2f16, type: 3}
     - target: {fileID: 820191123165313429, guid: 61ac962cdcd357b4ba6a33953e851a59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,40 +181,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
-        type: 3}
-      propertyPath: maxHealth
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
-        type: 3}
-      propertyPath: maxBulletCooldownTime
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
-        type: 3}
-      propertyPath: bulletDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
-        type: 3}
-      propertyPath: Name
-      value: Warlock
-      objectReference: {fileID: 0}
-    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
-        type: 3}
-      propertyPath: classType
-      value: Warlock
-      objectReference: {fileID: 0}
-    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
-        type: 3}
-      propertyPath: projectileSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 9e9658c1a852f6641aaeb62e181e952b, type: 3}
-    - target: {fileID: 820191123165313427, guid: 61ac962cdcd357b4ba6a33953e851a59,
-        type: 3}
-      propertyPath: deathScream
-      value: 
-      objectReference: {fileID: 8300000, guid: 28a55f75e23a5fa43acbd1e49c6d2f16, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61ac962cdcd357b4ba6a33953e851a59, type: 3}
+--- !u!4 &5102293702684326595 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 820191123165313429, guid: 61ac962cdcd357b4ba6a33953e851a59,
+    type: 3}
+  m_PrefabInstance: {fileID: 5597721920654295894}
+  m_PrefabAsset: {fileID: 0}
