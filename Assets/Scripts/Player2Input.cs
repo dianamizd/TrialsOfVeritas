@@ -48,9 +48,6 @@ public class Player2Input : MonoBehaviour
 
     //initialise script, to be able to pull references to it
     [SerializeField] private Player1Input playerOneScript;
-    [SerializeField] private Player1Input playerOneScriptArcher;
-    [SerializeField] private Player1Input playerOneScriptGladiator;
-    [SerializeField] private Player1Input playerOneScriptWarlock;
     [SerializeField] private ScoreCheck scoreCheck;
 
     //speed of dodge
@@ -119,14 +116,8 @@ public class Player2Input : MonoBehaviour
             WhenNoHealthTwo();
 
             playerOneScript.addRound();
-            playerOneScriptArcher.addRound();
-            playerOneScriptGladiator.addRound();
-            playerOneScriptWarlock.addRound();
 
             playerOneScript.WhenNoHealthOne();
-            playerOneScriptArcher.WhenNoHealthOne();
-            playerOneScriptGladiator.WhenNoHealthOne();
-            playerOneScriptWarlock.WhenNoHealthOne();
 
             scoreCheck.countdownTimer = 4;
 
@@ -259,14 +250,8 @@ public class Player2Input : MonoBehaviour
             WhenNoHealthTwo();
 
             playerOneScript.addRound();
-            playerOneScriptArcher.addRound();
-            playerOneScriptGladiator.addRound();
-            playerOneScriptWarlock.addRound();
 
             playerOneScript.WhenNoHealthOne();
-            playerOneScriptArcher.WhenNoHealthOne();
-            playerOneScriptGladiator.WhenNoHealthOne();
-            playerOneScriptWarlock.WhenNoHealthOne();
 
             GetComponent<AudioSource>().PlayOneShot(deathScream);
         }
@@ -282,9 +267,6 @@ public class Player2Input : MonoBehaviour
         giveMaxHealth();
 
         bulletDamage = playerOneScript.bulletDamage;
-        bulletDamage = playerOneScriptArcher.bulletDamage;
-        bulletDamage = playerOneScriptGladiator.bulletDamage;
-        bulletDamage = playerOneScriptWarlock.bulletDamage;
     }
 
     private void className()
@@ -317,9 +299,6 @@ public class Player2Input : MonoBehaviour
     public void playerDamage()
     {
         healthBar.value -= playerOneScript.bulletDamage;
-        healthBar.value -= playerOneScriptArcher.bulletDamage;
-        healthBar.value -= playerOneScriptGladiator.bulletDamage;
-        healthBar.value -= playerOneScriptWarlock.bulletDamage;
 
         currentHealth = healthBar.value;
 

@@ -43,10 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6148718bad733b149b7c74b7f8367922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  P1Archer: {fileID: 3893228944702479615, guid: 013045b4723acf442bb36b4f82167602,
+  P1Archer: {fileID: 1473297666368714987, guid: 013045b4723acf442bb36b4f82167602,
     type: 3}
   P1Gladiator: {fileID: 1785299705056275417, guid: a4bf7616ab51afa40845dc50909174de,
     type: 3}
   P1Warlock: {fileID: 2326855324207915055, guid: 5e4831e66a6e07b4f86049ee62d9a80b,
     type: 3}
+  characterClass: {fileID: 0}
   player1Spawn: {fileID: 4975409934544925939}

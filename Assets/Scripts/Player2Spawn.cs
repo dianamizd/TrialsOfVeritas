@@ -6,16 +6,14 @@ public class Player2Spawn : MonoBehaviour
 {
     private int characterSelectP2;
 
-    [SerializeField] private GameObject P2Archer;
-    [SerializeField] private GameObject P2Gladiator;
-    [SerializeField] private GameObject P2Warlock;
-
-    [SerializeField] private Transform player2Spawn;
+    public GameObject P2Archer;
+    public GameObject P2Gladiator;
+    public GameObject P2Warlock;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject characterSelect = GameObject.Find("CharacterSelect");
+        GameObject characterSelect = GameObject.Find("Character Select");
 
         characterSelectP2 = characterSelect.GetComponent<CharacterSelect>().playerCharacter2;
 
@@ -24,6 +22,8 @@ public class Player2Spawn : MonoBehaviour
             P2Archer.SetActive(true);
             P2Gladiator.SetActive(false);
             P2Warlock.SetActive(false);
+
+            Destroy(characterSelect);
         }
 
         if (characterSelectP2 == 2)
@@ -31,6 +31,8 @@ public class Player2Spawn : MonoBehaviour
             P2Archer.SetActive(false);
             P2Gladiator.SetActive(true);
             P2Warlock.SetActive(false);
+
+            Destroy(characterSelect);
         }
 
         if (characterSelectP2 == 3)
@@ -38,6 +40,8 @@ public class Player2Spawn : MonoBehaviour
             P2Archer.SetActive(false);
             P2Gladiator.SetActive(false);
             P2Warlock.SetActive(true);
+
+            Destroy(characterSelect);
         }
     }
 }

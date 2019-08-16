@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelChanger : MonoBehaviour
-{
+{   
     //reference to animator
     public Animator animator;
 
@@ -22,6 +22,8 @@ public class LevelChanger : MonoBehaviour
         //when uncommented, an error comes up but i can;t find the issue with it...
         islandButton.onClick.AddListener(IslandLevel);
         lavaButton.onClick.AddListener(LavaLevel);
+
+        Time.timeScale = 1f;
     }
 
     //function for when we want to fade to something, like a the level

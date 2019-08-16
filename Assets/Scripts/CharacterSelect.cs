@@ -7,6 +7,8 @@ public class CharacterSelect : MonoBehaviour
     public int playerCharacter1 = 1;
 
     public int playerCharacter2 = 1;
+
+    public GameObject Destroythis;
         
 
     private void Awake()

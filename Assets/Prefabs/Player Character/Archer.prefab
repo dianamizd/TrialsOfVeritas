@@ -39,8 +39,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5073656610527192454}
-  - component: {fileID: 3623342238469724022}
-  - component: {fileID: 3433019946094401589}
   - component: {fileID: 7058898555861557784}
   m_Layer: 0
   m_Name: Archer
@@ -65,51 +63,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3623342238469724022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3116226169060674587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d89b7640e055da345aec55fe870514a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 10
-  bulletSpawn: {fileID: 1969705809766454193}
-  healthBar: {fileID: 0}
-  healthValue: {fileID: 0}
-  roundCount: {fileID: 0}
-  Name: {fileID: 0}
-  maxHealth: 90
-  currentHealth: 0
-  currentRoundCount: 0
-  respawnPoint: {fileID: 0}
-  playerTwoScript: {fileID: 0}
-  dodgeSpeed: 5
-  dodgeDistance: 5
-  currentDodgeTime: 1
-  maxDodgeCooldownTime: 1
-  bullet: {fileID: 3609611686001635240, guid: 05382ae4fea045a4083fccc29ae0e6ec, type: 3}
-  bulletSpeed: 1000
---- !u!54 &3433019946094401589
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3116226169060674587}
-  serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &7058898555861557784
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -130,11 +83,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5073656610527192454}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 405a7010b2b34c445919dec961128f4a,
-        type: 3}
-      propertyPath: m_Name
-      value: erika_archer_bow_arrow@Standing Idle 01 stance
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 405a7010b2b34c445919dec961128f4a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -189,6 +137,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 405a7010b2b34c445919dec961128f4a,
+        type: 3}
+      propertyPath: m_Name
+      value: erika_archer_bow_arrow@Standing Idle 01 stance
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 405a7010b2b34c445919dec961128f4a, type: 3}
