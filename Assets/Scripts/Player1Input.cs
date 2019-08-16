@@ -51,6 +51,9 @@ public class Player1Input : MonoBehaviour
 
     //initialise script, to be able to pull references to it
     [SerializeField] private Player2Input playerTwoScript;
+    [SerializeField] private Player2Input playerTwoScriptArcher;
+    [SerializeField] private Player2Input playerTwoScriptGladiator;
+    [SerializeField] private Player2Input playerTwoScriptWarlock;
     [SerializeField] private ScoreCheck scoreCheck;
 
     //speed of dodge
@@ -74,6 +77,7 @@ public class Player1Input : MonoBehaviour
     //maximum cooldown time for dodge
     public float maxDodgeCooldownTime = 2.0f;
 
+    //checks if player is currently invincible
     private bool invincibleState = false;
 
     private float currentInvincibleTime = 0.0f;
@@ -121,8 +125,14 @@ public class Player1Input : MonoBehaviour
             WhenNoHealthOne();
 
             playerTwoScript.addRound();
+            playerTwoScriptArcher.addRound();
+            playerTwoScriptGladiator.addRound();
+            playerTwoScriptWarlock.addRound();
 
             playerTwoScript.WhenNoHealthTwo();
+            playerTwoScriptArcher.WhenNoHealthTwo();
+            playerTwoScriptGladiator.WhenNoHealthTwo();
+            playerTwoScriptWarlock.WhenNoHealthTwo();
 
             scoreCheck.countdownTimer = 4;
 
@@ -263,8 +273,14 @@ public class Player1Input : MonoBehaviour
             WhenNoHealthOne();
 
             playerTwoScript.addRound();
+            playerTwoScriptArcher.addRound();
+            playerTwoScriptGladiator.addRound();
+            playerTwoScriptWarlock.addRound();
 
             playerTwoScript.WhenNoHealthTwo();
+            playerTwoScriptArcher.WhenNoHealthTwo();
+            playerTwoScriptGladiator.WhenNoHealthTwo();
+            playerTwoScriptWarlock.WhenNoHealthTwo();
 
             GetComponent<AudioSource>().PlayOneShot(deathScream);
         }
@@ -279,6 +295,9 @@ public class Player1Input : MonoBehaviour
         giveMaxHealth();
 
         bulletDamage = playerTwoScript.bulletDamage;
+        bulletDamage = playerTwoScriptArcher.bulletDamage;
+        bulletDamage = playerTwoScriptGladiator.bulletDamage;
+        bulletDamage = playerTwoScriptWarlock.bulletDamage;
 
     }
 
@@ -315,6 +334,9 @@ public class Player1Input : MonoBehaviour
     public void playerDamage()
     {
         healthBar.value -= playerTwoScript.bulletDamage;
+        healthBar.value -= playerTwoScriptArcher.bulletDamage;
+        healthBar.value -= playerTwoScriptGladiator.bulletDamage;
+        healthBar.value -= playerTwoScriptWarlock.bulletDamage;
 
         //health gets update when damage is taken
         currentHealth = healthBar.value;

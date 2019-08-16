@@ -20,8 +20,15 @@ public class ScoreCheck : MonoBehaviour
     public static bool pauseActive = false;
 
     [SerializeField] private Player1Input playerOneScript;
+    [SerializeField] private Player1Input playerOneScriptArcher;
+    [SerializeField] private Player1Input playerOneScriptGladiator;
+    [SerializeField] private Player1Input playerOneScriptWarlock;
 
     [SerializeField] private Player2Input playerTwoScript;
+    [SerializeField] private Player2Input playerTwoScriptArcher;
+    [SerializeField] private Player2Input playerTwoScriptGladiator;
+    [SerializeField] private Player2Input playerTwoScriptWarlock;
+
 
     void Start()
     {
@@ -54,8 +61,14 @@ public class ScoreCheck : MonoBehaviour
             WinText.text = "PLAYER 1 WIN";
 
             playerOneScript.enabled = false;
+            playerOneScriptArcher.enabled = false;
+            playerOneScriptGladiator.enabled = false;
+            playerOneScriptWarlock.enabled = false;
 
             playerTwoScript.enabled = false;
+            playerTwoScriptArcher.enabled = false;
+            playerTwoScriptGladiator.enabled = false;
+            playerTwoScriptWarlock.enabled = false;
 
             returnToMenuButton.SetActive(true);
            
@@ -66,8 +79,14 @@ public class ScoreCheck : MonoBehaviour
             WinText.text = "PLAYER 2 WIN";
 
             playerOneScript.enabled = false;
+            playerOneScriptArcher.enabled = false;
+            playerOneScriptGladiator.enabled = false;
+            playerOneScriptWarlock.enabled = false;
 
             playerTwoScript.enabled = false;
+            playerTwoScriptArcher.enabled = false;
+            playerTwoScriptGladiator.enabled = false;
+            playerTwoScriptWarlock.enabled = false;
 
             returnToMenuButton.SetActive(true);
 
@@ -79,8 +98,14 @@ public class ScoreCheck : MonoBehaviour
         if (countdownTimer >= 1)
         {
             playerOneScript.enabled = false;
+            playerOneScriptArcher.enabled = false;
+            playerOneScriptGladiator.enabled = false;
+            playerOneScriptWarlock.enabled = false;
 
             playerTwoScript.enabled = false;
+            playerTwoScriptArcher.enabled = false;
+            playerTwoScriptGladiator.enabled = false;
+            playerTwoScriptWarlock.enabled = false;
 
             countdownTimer -= 1 * Time.deltaTime;
 
@@ -89,8 +114,14 @@ public class ScoreCheck : MonoBehaviour
         else
         {
             playerOneScript.enabled = true;
+            playerOneScriptArcher.enabled = true;
+            playerOneScriptGladiator.enabled = true;
+            playerOneScriptWarlock.enabled = true;
 
             playerTwoScript.enabled = true;
+            playerTwoScriptArcher.enabled = true;
+            playerTwoScriptGladiator.enabled = true;
+            playerTwoScriptWarlock.enabled = true;
 
             countdownTimerText.text = "";
         }

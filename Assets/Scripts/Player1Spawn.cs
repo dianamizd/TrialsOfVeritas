@@ -19,7 +19,7 @@ public class Player1Spawn : MonoBehaviour
 
         characterSelectP1 = characterSelect.GetComponent<CharacterSelect>().playerCharacter1;
 
-        if(characterSelectP1 == 1)
+        if (characterSelectP1 == 1)
         {
             P1Archer.SetActive(true);
             P1Gladiator.SetActive(false);

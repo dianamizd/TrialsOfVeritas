@@ -17,7 +17,7 @@ public class Player2Spawn : MonoBehaviour
     {
         GameObject characterSelect = GameObject.Find("CharacterSelect");
 
-        characterSelectP2 = characterSelect.GetComponent<CharacterSelect>().playerCharacter1;
+        characterSelectP2 = characterSelect.GetComponent<CharacterSelect>().playerCharacter2;
 
         if (characterSelectP2 == 1)
         {
