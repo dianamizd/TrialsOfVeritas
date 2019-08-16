@@ -21,17 +21,23 @@ public class Player2Spawn : MonoBehaviour
 
         if (characterSelectP2 == 1)
         {
-            Instantiate(P2Archer, player2Spawn.position, player2Spawn.rotation);
+            P2Archer.SetActive(true);
+            P2Gladiator.SetActive(false);
+            P2Warlock.SetActive(false);
         }
 
         if (characterSelectP2 == 2)
         {
-            Instantiate(P2Gladiator, player2Spawn.position, player2Spawn.rotation);
+            P2Archer.SetActive(false);
+            P2Gladiator.SetActive(true);
+            P2Warlock.SetActive(false);
         }
 
         if (characterSelectP2 == 3)
         {
-            Instantiate(P2Warlock, player2Spawn.position, player2Spawn.rotation);
+            P2Archer.SetActive(false);
+            P2Gladiator.SetActive(false);
+            P2Warlock.SetActive(true);
         }
     }
 }
