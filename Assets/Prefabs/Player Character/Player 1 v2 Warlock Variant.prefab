@@ -124,26 +124,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1701047753804819144, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1701047753804819144, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.042
-      objectReference: {fileID: 0}
-    - target: {fileID: 1701047753804819144, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.063
-      objectReference: {fileID: 0}
-    - target: {fileID: 1701047753804819144, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.096
-      objectReference: {fileID: 0}
     - target: {fileID: 5117043470968407256, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
       propertyPath: m_Name
@@ -153,6 +133,47 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: maxHealth
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: maxBulletCooldownTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: Name
+      value: Warlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: classType
+      value: Warlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: projectileSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e9658c1a852f6641aaeb62e181e952b, type: 3}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: deathScream
+      value: 
+      objectReference: {fileID: 8300000, guid: 28a55f75e23a5fa43acbd1e49c6d2f16, type: 3}
+    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7083841717871238501, guid: eb3c330843629f54ba1ae2e8c820f65b,
+        type: 3}
+    - target: {fileID: 5117043470968407254, guid: dba890c5c90add64388b726b712b944c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4216304933872963747, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
@@ -259,48 +280,27 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+    - target: {fileID: 1701047753804819144, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
-      propertyPath: maxHealth
-      value: 90
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+    - target: {fileID: 1701047753804819144, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
-      propertyPath: maxBulletCooldownTime
-      value: 0.3
+      propertyPath: m_LocalPosition.x
+      value: -1.042
       objectReference: {fileID: 0}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+    - target: {fileID: 1701047753804819144, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
-      propertyPath: Name
-      value: Warlock
+      propertyPath: m_LocalPosition.z
+      value: 1.063
       objectReference: {fileID: 0}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
+    - target: {fileID: 1701047753804819144, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
-      propertyPath: classType
-      value: Warlock
+      propertyPath: m_LocalPosition.y
+      value: 0.096
       objectReference: {fileID: 0}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: projectileSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 9e9658c1a852f6641aaeb62e181e952b, type: 3}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: deathScream
-      value: 
-      objectReference: {fileID: 8300000, guid: 28a55f75e23a5fa43acbd1e49c6d2f16, type: 3}
-    - target: {fileID: 5117043470968407250, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 7083841717871238501, guid: eb3c330843629f54ba1ae2e8c820f65b,
-        type: 3}
     - target: {fileID: 5117043470968407255, guid: dba890c5c90add64388b726b712b944c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5117043470968407254, guid: dba890c5c90add64388b726b712b944c,
         type: 3}
       propertyPath: m_Enabled
       value: 0
